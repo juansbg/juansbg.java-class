@@ -16,9 +16,11 @@ public abstract class ObjetoJuego {
   private Image imagen1;
   private Image imagen2;
   private Image imagen3;
+  private boolean visible;
 
   public ObjetoJuego(String dirImagen1, String dirImagen2, String dirImagen3){
     this.importarImagenes(dirImagen1,dirImagen2,dirImagen3);
+    this.setVisible(true);
     // Color HEX Recursos: 3ffc4a
   }
 
@@ -38,12 +40,20 @@ public abstract class ObjetoJuego {
     return ancho;
   }
 
+  public boolean getVisible(){
+    return visible;
+  }
+
   public void setX(int i){
     this.x = i;
   }
 
   public void setY(int i){
     this.y = i;
+  }
+
+  public void setVisible(boolean v){
+    this.visible = v;
   }
 
   public void importarImagenes(String dirImagen1, String dirImagen2, String dirImagen3){

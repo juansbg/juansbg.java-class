@@ -19,6 +19,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class JVentanaJuego extends JFrame implements ActionListener {
+  public static final int X_SIZE_VENTANA = 1000;
+  public static final int Y_SIZE_VENTANA = 650;
 
   public static void main(String[] args) {
     int imf = ObjetoJuego.IM1; // Imagen final de cada alien
@@ -30,7 +32,7 @@ public class JVentanaJuego extends JFrame implements ActionListener {
       } else {
         imf = ObjetoJuego.IM1;
       }
-      jpj = new JPanelJuego(imf);
+      JPanelJuego.IMF=imf;
       JVJuego.esperar(2);
       JVJuego.repaint();
     }
@@ -56,7 +58,7 @@ public class JVentanaJuego extends JFrame implements ActionListener {
   private void configurarJFrame(){
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setTitle("Space Invaders");
-    this.setSize(1000,650);
+    this.setSize(X_SIZE_VENTANA,Y_SIZE_VENTANA);
     //this.setMinimumSize(new Dimension(800,550));
     this.setLocationRelativeTo(null);
     this.setResizable(false);

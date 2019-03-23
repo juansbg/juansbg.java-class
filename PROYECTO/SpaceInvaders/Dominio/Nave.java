@@ -6,6 +6,7 @@ import javax.swing.ImageIcon;
 
 public class Nave extends Volador {
   public Nave(){
-    super("Recursos/Alien1P1.png","Recursos/Alien1P2.png","Recursos/Alien1PM.png");
-  }  
+    super("/Users/juansb/Documents/GitHub/juansbg.github.io/PROYECTO/SpaceInvaders/Recursos/NaveP1.png","/Users/juansb/Documents/GitHub/juansbg.github.io/PROYECTO/SpaceInvaders/Recursos/NavePM1.png","/Users/juansb/Documents/GitHub/juansbg.github.io/PROYECTO/SpaceInvaders/Recursos/NavePM2.png");
+  }
+  
 }

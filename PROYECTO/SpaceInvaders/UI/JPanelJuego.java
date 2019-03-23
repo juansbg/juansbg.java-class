@@ -25,9 +25,11 @@ public class JPanelJuego extends JPanel {
   public static final int Y_INICIAL = 50;
   public static final int SEPARACION_LATERAL = 70;
   public static final int SEPARACION_VERTICAL = 60;
+  public static final boolean ALIENS_BLANCOS = true;
+  public static int IMF = ObjetoJuego.IM1;
 
   ArrayList aliens = new ArrayList();
-  public static int IMF = ObjetoJuego.IM1;
+  Nave nave = new Nave();
 
   public JPanelJuego(int im){
     super(new GridLayout(3,10));
@@ -47,14 +49,15 @@ public class JPanelJuego extends JPanel {
     int x = X_INICIAL;
     int y = Y_INICIAL;
     for(int i = 0;i<=8;i++){
-      aliens.add(new AlienDos(x+SEPARACION_LATERAL*i,y));
+      aliens.add(new AlienDos(x+SEPARACION_LATERAL*i+10,y));
     }
     for(int i = 0;i<=8;i++){
-      aliens.add(new Alien(x+SEPARACION_LATERAL*i,y+SEPARACION_VERTICAL));
+      aliens.add(new Alien(x+SEPARACION_LATERAL*i+5,y+SEPARACION_VERTICAL));
     }
     for(int i = 0;i<=8;i++){
       aliens.add(new AlienTres(x+SEPARACION_LATERAL*i,y+2*SEPARACION_VERTICAL));
     }
+
     this.repaint();
   }
 
@@ -63,7 +66,8 @@ public class JPanelJuego extends JPanel {
     Iterator it = aliens.iterator();
     while(it.hasNext()){
       Alien alien = (Alien) it.next();
-      g2d.drawImage(alien.getImagen(IMF), alien.getX(), alien.getY(), this);
+      if(alien.getVisible())
+        g2d.drawImage(alien.getImagen(IMF), alien.getX(), alien.getY(), this);
     }
     // ARREGLAR CONSTANTE
   }
