@@ -63,9 +63,8 @@ public class JVentanaJuego extends JFrame implements ActionListener {
     this.setLocationRelativeTo(null);
     this.setResizable(false);
   }
-
   @Override
   public void actionPerformed(ActionEvent e){
-    Object target = e.getSource();
+    
   }
 }

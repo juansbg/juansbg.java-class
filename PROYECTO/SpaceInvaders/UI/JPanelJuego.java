@@ -19,8 +19,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import javax.swing.JPanel;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
-public class JPanelJuego extends JPanel {
+public class JPanelJuego extends JPanel implements ActionListener {
   public static final int X_INICIAL = 50;
   public static final int Y_INICIAL = 50;
   public static final int SEPARACION_LATERAL = 70;
@@ -34,6 +36,8 @@ public class JPanelJuego extends JPanel {
   public JPanelJuego(int im){
     super(new GridLayout(3,10));
     this.setBackground(Color.black);
+    this.setFocusable(true);
+    this.addKeyListener(new JuegoKeyAdapter());
     this.configObjetos();
     this.IMF = im;
   }
@@ -57,7 +61,7 @@ public class JPanelJuego extends JPanel {
     for(int i = 0;i<=8;i++){
       aliens.add(new AlienTres(x+SEPARACION_LATERAL*i,y+2*SEPARACION_VERTICAL));
     }
-
+    nave = new Nave();
     this.repaint();
   }
 
@@ -69,6 +73,25 @@ public class JPanelJuego extends JPanel {
       if(alien.getVisible())
         g2d.drawImage(alien.getImagen(IMF), alien.getX(), alien.getY(), this);
     }
+    g2d.drawImage(nave.getImagen(ObjetoJuego.IM1), nave.getX(), nave.getY(), this);
     // ARREGLAR CONSTANTE
   }
+  @Override
+  public void actionPerformed(ActionEvent e){
+    System.out.println("Buenas");
+    nave.mover();
+    this.repaint(nave.getX()-1, nave.getY()-1,
+                 nave.getAncho()+2, nave.getAltura()+2);
+  }
+
+  private class JuegoKeyAdapter extends KeyAdapter {
+        @Override
+        public void keyReleased(KeyEvent e) {
+            nave.keyReleased(e);
+        }
+        @Override
+        public void keyPressed(KeyEvent e) {
+            nave.keyPressed(e);
+        }
+    }
 }
