@@ -4,6 +4,8 @@ import SpaceInvaders.Dominio.Alien;
 import SpaceInvaders.Dominio.AlienDos;
 import SpaceInvaders.Dominio.AlienTres;
 import SpaceInvaders.Dominio.Nave;
+import SpaceInvaders.Dominio.Proyectil;
+import SpaceInvaders.Dominio.PNave;
 import SpaceInvaders.Dominio.ObjetoJuego;
 
 import java.awt.Color;
@@ -36,8 +38,8 @@ public class JPanelJuego extends JPanel implements ActionListener {
   public JPanelJuego(int im){
     super(new GridLayout(3,10));
     this.setBackground(Color.black);
-    this.setFocusable(true);
     this.addKeyListener(new JuegoKeyAdapter());
+    this.setFocusable(true);
     this.configObjetos();
     this.IMF = im;
   }
@@ -74,8 +76,20 @@ public class JPanelJuego extends JPanel implements ActionListener {
         g2d.drawImage(alien.getImagen(IMF), alien.getX(), alien.getY(), this);
     }
     g2d.drawImage(nave.getImagen(ObjetoJuego.IM1), nave.getX(), nave.getY(), this);
+    nave.getProyectil().mover();
+    g2d.drawImage(nave.getProyectil().getImagen(ObjetoJuego.IM1), nave.getProyectil().getX(), nave.getProyectil().getY(), this);
+    this.comprobarColision();
     // ARREGLAR CONSTANTE
   }
+
+  public void comprobarColision() {
+    Iterator it = aliens.iterator();
+    while(it.hasNext()){
+      Alien alien = (Alien) it.next();
+      alien.comprobarColision(nave.getProyectil());
+    }
+  }
+
   @Override
   public void actionPerformed(ActionEvent e){
     System.out.println("Buenas");

@@ -11,29 +11,28 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.BorderLayout;
-import java.awt.GridLayout;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class JVentanaJuego extends JFrame implements ActionListener {
-  public static final int X_SIZE_VENTANA = 1000;
-  public static final int Y_SIZE_VENTANA = 650;
+  public static final int X_SIZE_VENTANA = 1200;
+  public static final int Y_SIZE_VENTANA = 750;
+  public static int imf = ObjetoJuego.IM1; // Imagen final de cada alien
+  public static int cnt = 1; // Contador para actualizar imagen aliens
 
   public static void main(String[] args) {
-    int imf = ObjetoJuego.IM1; // Imagen final de cada alien
+
     JPanelJuego jpj = new JPanelJuego(imf);
     JVentanaJuego JVJuego = new JVentanaJuego(jpj);
     while(true){
-      if(imf == ObjetoJuego.IM1){
-        imf = ObjetoJuego.IM2;
-      } else {
-        imf = ObjetoJuego.IM1;
-      }
+      actualizarAliens();
       JPanelJuego.IMF=imf;
-      JVJuego.esperar(2);
+      JVJuego.esperar(1);
       JVJuego.repaint();
     }
   }
@@ -49,10 +48,21 @@ public class JVentanaJuego extends JFrame implements ActionListener {
 
   private void esperar(int i){
     try {
-      Thread.sleep(i*100);
+      Thread.sleep(i*50);
     }
     catch(Exception e){
     }
+  }
+
+  public static void actualizarAliens(){
+    if(imf == ObjetoJuego.IM1 && cnt==4)
+      imf = ObjetoJuego.IM2;
+    else if(cnt==4)
+      imf = ObjetoJuego.IM1;
+    if(cnt==4)
+      cnt=1;
+    else
+      cnt+=1;
   }
 
   private void configurarJFrame(){
@@ -65,6 +75,5 @@ public class JVentanaJuego extends JFrame implements ActionListener {
   }
   @Override
   public void actionPerformed(ActionEvent e){
-    
   }
 }

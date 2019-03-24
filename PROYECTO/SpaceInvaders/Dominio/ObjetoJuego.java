@@ -63,8 +63,8 @@ public abstract class ObjetoJuego {
     imagen1 = ic1.getImage();
     imagen2 = ic2.getImage();
     imagen3 = ic3.getImage();
-    ancho = (int) imagen1.getWidth(null)/3;
-    altura = (int) imagen1.getHeight(null)/3;
+    ancho = (int) imagen1.getWidth(null);
+    altura = (int) imagen1.getHeight(null);
   }
 
   public Image getImagen(int im){
