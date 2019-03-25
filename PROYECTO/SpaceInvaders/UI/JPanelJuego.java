@@ -7,6 +7,7 @@ import SpaceInvaders.Dominio.Nave;
 import SpaceInvaders.Dominio.Proyectil;
 import SpaceInvaders.Dominio.PNave;
 import SpaceInvaders.Dominio.ObjetoJuego;
+import SpaceInvaders.Util.Constantes;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -25,11 +26,6 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public class JPanelJuego extends JPanel implements ActionListener {
-  public static final int X_INICIAL = 50;
-  public static final int Y_INICIAL = 50;
-  public static final int SEPARACION_LATERAL = 70;
-  public static final int SEPARACION_VERTICAL = 60;
-  public static final boolean ALIENS_BLANCOS = true;
   public static int IMF = ObjetoJuego.IM1;
 
   ArrayList aliens = new ArrayList();
@@ -52,16 +48,16 @@ public class JPanelJuego extends JPanel implements ActionListener {
   }
 
   private void configObjetos(){
-    int x = X_INICIAL;
-    int y = Y_INICIAL;
+    int x = Constantes.X_INICIAL;
+    int y = Constantes.Y_INICIAL;
     for(int i = 0;i<=8;i++){
-      aliens.add(new AlienDos(x+SEPARACION_LATERAL*i+10,y));
+      aliens.add(new AlienDos(x+Constantes.SEPARACION_LATERAL*i+10,y));
     }
     for(int i = 0;i<=8;i++){
-      aliens.add(new Alien(x+SEPARACION_LATERAL*i+5,y+SEPARACION_VERTICAL));
+      aliens.add(new Alien(x+Constantes.SEPARACION_LATERAL*i+5,y+Constantes.SEPARACION_VERTICAL));
     }
     for(int i = 0;i<=8;i++){
-      aliens.add(new AlienTres(x+SEPARACION_LATERAL*i,y+2*SEPARACION_VERTICAL));
+      aliens.add(new AlienTres(x+Constantes.SEPARACION_LATERAL*i,y+2*Constantes.SEPARACION_VERTICAL));
     }
     nave = new Nave();
     this.repaint();
@@ -92,7 +88,7 @@ public class JPanelJuego extends JPanel implements ActionListener {
 
   @Override
   public void actionPerformed(ActionEvent e){
-    System.out.println("Buenas");
+    // System.out.println("Mariajo tkm <3");
     nave.mover();
     this.repaint(nave.getX()-1, nave.getY()-1,
                  nave.getAncho()+2, nave.getAltura()+2);

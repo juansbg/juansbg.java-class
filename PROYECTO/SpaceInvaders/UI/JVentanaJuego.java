@@ -4,6 +4,7 @@ import SpaceInvaders.Dominio.Alien;
 import SpaceInvaders.Dominio.Nave;
 import SpaceInvaders.Util.Util;
 import SpaceInvaders.Dominio.ObjetoJuego;
+import SpaceInvaders.Util.Constantes;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -20,8 +21,6 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public class JVentanaJuego extends JFrame implements ActionListener {
-  public static final int X_SIZE_VENTANA = 1200;
-  public static final int Y_SIZE_VENTANA = 750;
   public static int imf = ObjetoJuego.IM1; // Imagen final de cada alien
   public static int cnt = 1; // Contador para actualizar imagen aliens
 
@@ -68,7 +67,7 @@ public class JVentanaJuego extends JFrame implements ActionListener {
   private void configurarJFrame(){
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setTitle("Space Invaders");
-    this.setSize(X_SIZE_VENTANA,Y_SIZE_VENTANA);
+    this.setSize(Constantes.X_SIZE_VENTANA,Constantes.Y_SIZE_VENTANA);
     //this.setMinimumSize(new Dimension(800,550));
     this.setLocationRelativeTo(null);
     this.setResizable(false);

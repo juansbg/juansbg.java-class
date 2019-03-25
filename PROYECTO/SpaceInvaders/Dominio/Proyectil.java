@@ -1,7 +1,6 @@
 package SpaceInvaders.Dominio;
 
 public abstract class Proyectil extends Volador {
-  public static final int VELOC_PROYEC = 20;
 
   public Proyectil(String dirImagen1, String dirImagen2) {
     super(dirImagen1,dirImagen2,dirImagen2);

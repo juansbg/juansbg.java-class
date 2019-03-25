@@ -19,8 +19,8 @@ public class Alien extends Volador {
   }
 
   public void comprobarColision(Proyectil proyectil){
-    if(proyectil.getX()>this.getX() && proyectil.getX()<(this.getX()+this.getAncho())){
-      if(proyectil.getY()>this.getY() && proyectil.getY()<(this.getX()+this.getAltura())){
+    if((proyectil.getX()>this.getX()) && (proyectil.getX()<(this.getX()+this.getAncho()))){
+      if((proyectil.getY()>this.getY()) && (proyectil.getY()<(this.getX()+this.getAltura()))){
         this.setVisible(false);
       }
     }

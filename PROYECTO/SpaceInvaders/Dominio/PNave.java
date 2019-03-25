@@ -1,6 +1,7 @@
 package SpaceInvaders.Dominio;
 
 import SpaceInvaders.UI.JPanelJuego;
+import SpaceInvaders.Util.Constantes;
 
 import java.awt.Image;
 import java.awt.event.KeyEvent;
@@ -13,6 +14,6 @@ public class PNave extends Proyectil {
 
   public void disparo(Volador v){
     super.disparo(v);
-    this.setMovY(-Proyectil.VELOC_PROYEC);
+    this.setMovY(-Constantes.VELOC_PROYEC);
   }
 }
