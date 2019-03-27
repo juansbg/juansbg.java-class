@@ -78,4 +78,14 @@ public abstract class ObjetoJuego {
     }
     return imagen;
   }
+
+  public void setImagen(int im, Image imagen){
+    if(im==1){
+      this.imagen1 = imagen;
+    } else if(im==2){
+      this.imagen2 = imagen;
+    } else if(im==3){
+      this.imagen3 = imagen;
+    }
+  }
 }

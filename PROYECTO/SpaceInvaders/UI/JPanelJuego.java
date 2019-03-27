@@ -73,8 +73,9 @@ public class JPanelJuego extends JPanel implements ActionListener {
     }
     g2d.drawImage(nave.getImagen(ObjetoJuego.IM1), nave.getX(), nave.getY(), this);
     nave.getProyectil().mover();
-    g2d.drawImage(nave.getProyectil().getImagen(ObjetoJuego.IM1), nave.getProyectil().getX(), nave.getProyectil().getY(), this);
-    this.comprobarColision();
+    if(nave.getProyectil().getVisible())
+      g2d.drawImage(nave.getProyectil().getImagen(ObjetoJuego.IM1), nave.getProyectil().getX(), nave.getProyectil().getY(), this);
+    // this.comprobarColision();
     // ARREGLAR CONSTANTE
   }
 
@@ -88,7 +89,6 @@ public class JPanelJuego extends JPanel implements ActionListener {
 
   @Override
   public void actionPerformed(ActionEvent e){
-    // System.out.println("Mariajo tkm <3");
     nave.mover();
     this.repaint(nave.getX()-1, nave.getY()-1,
                  nave.getAncho()+2, nave.getAltura()+2);

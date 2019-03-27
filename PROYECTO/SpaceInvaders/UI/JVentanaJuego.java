@@ -31,6 +31,7 @@ public class JVentanaJuego extends JFrame implements ActionListener {
     while(true){
       actualizarAliens();
       JPanelJuego.IMF=imf;
+      jpj.comprobarColision();
       JVJuego.esperar(1);
       JVJuego.repaint();
     }

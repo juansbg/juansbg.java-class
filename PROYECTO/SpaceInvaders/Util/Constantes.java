@@ -3,6 +3,7 @@ package SpaceInvaders.Util;
 public class Constantes {
   public static final int     X_INICIAL           = 50;   // Posición inicial del primer alien arriba a la izquierda
   public static final int     Y_INICIAL           = 50;
+
   public static final int     SEPARACION_LATERAL  = 70;   // Separación entre los aliens
   public static final int     SEPARACION_VERTICAL = 60;
   public static final boolean ALIENS_BLANCOS      = true;

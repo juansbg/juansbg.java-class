@@ -12,15 +12,18 @@ public class Alien extends Volador {
   }
 
   public Alien(int x, int y){
-    super("/Users/juansb/Documents/GitHub/juansbg.github.io/PROYECTO/SpaceInvaders/Recursos/Alien1P1_BLANCO.png","/Users/juansb/Documents/GitHub/juansbg.github.io/PROYECTO/SpaceInvaders/Recursos/Alien1P2_BLANCO.png","/Users/juansb/Documents/GitHub/juansbg.github.io/PROYECTO/SpaceInvaders/Recursos/AlienPM_BLANCO.png");
+    super("SpaceInvaders/Recursos/Alien1P1_BLANCO.png","SpaceInvaders/Recursos/Alien1P2_BLANCO.png","SpaceInvaders/Recursos/AlienPM_BLANCO.png");
     this.setX(x);
     this.setY(y);
     this.setVisible(true);
   }
 
   public void comprobarColision(Proyectil proyectil){
-    if((proyectil.getX()>this.getX()) && (proyectil.getX()<(this.getX()+this.getAncho()))){
-      if((proyectil.getY()>this.getY()) && (proyectil.getY()<(this.getX()+this.getAltura()))){
+    if(proyectil.getVisible() && this.getVisible() && (proyectil.getX()>this.getX()) && (proyectil.getX()<(this.getX()+this.getAncho()))){
+      if((proyectil.getY()>this.getY()) && (proyectil.getY()<(this.getY()+this.getAltura()))){
+        proyectil.setVisible(false);
+        //this.setImagen(1,this.getImagen(3));
+        //this.setImagen(2,this.getImagen(3));
         this.setVisible(false);
       }
     }
