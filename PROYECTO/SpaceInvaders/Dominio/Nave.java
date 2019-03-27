@@ -1,7 +1,7 @@
-package SpaceInvaders.Dominio;
+package spaceInvaders.dominio;
 
-import SpaceInvaders.UI.JVentanaJuego;
-import SpaceInvaders.Util.Constantes;
+import spaceInvaders.ui.JVentanaJuego;
+import spaceInvaders.util.Constantes;
 
 import java.awt.Image;
 import java.awt.event.KeyEvent;

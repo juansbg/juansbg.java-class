@@ -1,10 +1,9 @@
-package SpaceInvaders.UI;
+package spaceInvaders.ui;
 
-import SpaceInvaders.Dominio.Alien;
-import SpaceInvaders.Dominio.Nave;
-import SpaceInvaders.Util.Util;
-import SpaceInvaders.Dominio.ObjetoJuego;
-import SpaceInvaders.Util.Constantes;
+import spaceInvaders.dominio.Alien;
+import spaceInvaders.dominio.Nave;
+import spaceInvaders.dominio.ObjetoJuego;
+import spaceInvaders.util.Constantes;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;

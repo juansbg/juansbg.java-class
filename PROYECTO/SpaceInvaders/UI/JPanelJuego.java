@@ -1,13 +1,13 @@
-package SpaceInvaders.UI;
+package spaceInvaders.ui;
 
-import SpaceInvaders.Dominio.Alien;
-import SpaceInvaders.Dominio.AlienDos;
-import SpaceInvaders.Dominio.AlienTres;
-import SpaceInvaders.Dominio.Nave;
-import SpaceInvaders.Dominio.Proyectil;
-import SpaceInvaders.Dominio.PNave;
-import SpaceInvaders.Dominio.ObjetoJuego;
-import SpaceInvaders.Util.Constantes;
+import spaceInvaders.dominio.Alien;
+import spaceInvaders.dominio.AlienDos;
+import spaceInvaders.dominio.AlienTres;
+import spaceInvaders.dominio.Nave;
+import spaceInvaders.dominio.Proyectil;
+import spaceInvaders.dominio.PNave;
+import spaceInvaders.dominio.ObjetoJuego;
+import spaceInvaders.util.Constantes;
 
 import java.awt.Color;
 import java.awt.Graphics;

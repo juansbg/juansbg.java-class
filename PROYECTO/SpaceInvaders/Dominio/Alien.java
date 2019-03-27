@@ -1,6 +1,6 @@
-package SpaceInvaders.Dominio;
+package spaceInvaders.dominio;
 
-import SpaceInvaders.UI.JPanelJuego;
+import spaceInvaders.ui.JPanelJuego;
 
 import java.awt.Image;
 import java.awt.event.KeyEvent;
@@ -12,7 +12,7 @@ public class Alien extends Volador {
   }
 
   public Alien(int x, int y){
-    super("SpaceInvaders/Recursos/Alien1P1_BLANCO.png","SpaceInvaders/Recursos/Alien1P2_BLANCO.png","SpaceInvaders/Recursos/AlienPM_BLANCO.png");
+    super("spaceInvaders/recursos/Alien1P1_BLANCO.png","spaceInvaders/recursos/Alien1P2_BLANCO.png","spaceInvaders/recursos/AlienPM_BLANCO.png");
     this.setX(x);
     this.setY(y);
     this.setVisible(true);

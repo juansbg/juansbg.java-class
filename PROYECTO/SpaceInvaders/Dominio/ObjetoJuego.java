@@ -1,4 +1,4 @@
-package SpaceInvaders.Dominio;
+package spaceInvaders.dominio;
 
 import java.awt.Image;
 import java.awt.event.KeyEvent;

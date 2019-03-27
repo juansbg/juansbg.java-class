@@ -1,4 +1,4 @@
-package SpaceInvaders.Util;
+package spaceInvaders.util;
 
 public class Constantes {
   public static final int     X_INICIAL           = 50;   // Posición inicial del primer alien arriba a la izquierda

@@ -1,4 +1,4 @@
-package SpaceInvaders.Dominio;
+package spaceInvaders.dominio;
 
 public abstract class Proyectil extends Volador {
 
