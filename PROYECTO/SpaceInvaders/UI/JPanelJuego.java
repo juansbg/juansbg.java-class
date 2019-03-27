@@ -50,17 +50,29 @@ public class JPanelJuego extends JPanel implements ActionListener {
   private void configObjetos(){
     int x = Constantes.X_INICIAL;
     int y = Constantes.Y_INICIAL;
-    for(int i = 0;i<=8;i++){
+    for(int i = 0;i<=Constantes.NUM_ALIENS-1;i++)
       aliens.add(new AlienDos(x+Constantes.SEPARACION_LATERAL*i+10,y));
-    }
-    for(int i = 0;i<=8;i++){
-      aliens.add(new Alien(x+Constantes.SEPARACION_LATERAL*i+5,y+Constantes.SEPARACION_VERTICAL));
-    }
-    for(int i = 0;i<=8;i++){
-      aliens.add(new AlienTres(x+Constantes.SEPARACION_LATERAL*i,y+2*Constantes.SEPARACION_VERTICAL));
-    }
+    for(int i = 0;i<=Constantes.NUM_ALIENS-1;i++)
+      aliens.add(new AlienDos(x+Constantes.SEPARACION_LATERAL*i+10,y+Constantes.SEPARACION_VERTICAL));
+    for(int i = 0;i<=Constantes.NUM_ALIENS-1;i++)
+      aliens.add(new Alien(x+Constantes.SEPARACION_LATERAL*i+5,y+2*Constantes.SEPARACION_VERTICAL));
+    for(int i = 0;i<=Constantes.NUM_ALIENS-1;i++)
+      aliens.add(new Alien(x+Constantes.SEPARACION_LATERAL*i+5,y+3*Constantes.SEPARACION_VERTICAL));
+    for(int i = 0;i<=Constantes.NUM_ALIENS-1;i++)
+      aliens.add(new AlienTres(x+Constantes.SEPARACION_LATERAL*i,y+4*Constantes.SEPARACION_VERTICAL));
     nave = new Nave();
     this.repaint();
+  }
+
+  public void desplazarGrupo(){
+    Iterator it = aliens.iterator();
+    while(it.hasNext()){
+      Alien alien = (Alien) it.next();
+      alien.desplazar();
+    }
+    if (Constantes.CONTADOR_MOVIMIENTO == -(Constantes.CONTADOR_MOVIMIENTO_INICIAL))
+      Constantes.CONTADOR_MOVIMIENTO = Constantes.CONTADOR_MOVIMIENTO_INICIAL;
+    Constantes.CONTADOR_MOVIMIENTO += -1;
   }
 
   private void pintarAlien(Graphics g) {

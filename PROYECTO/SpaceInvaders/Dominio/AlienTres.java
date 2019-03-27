@@ -8,5 +8,6 @@ public class AlienTres extends Alien {
   public AlienTres(int x, int y){
     super(x,y);
     this.importarImagenes("spaceInvaders/recursos/Alien3P1_BLANCO.png","spaceInvaders/recursos/Alien3P2_BLANCO.png","spaceInvaders/recursos/AlienPM_BLANCO.png");
+    this.setPuntos(2);
   }
 }

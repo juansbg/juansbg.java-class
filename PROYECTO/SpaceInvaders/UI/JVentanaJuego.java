@@ -26,19 +26,23 @@ public class JVentanaJuego extends JFrame implements ActionListener {
   public static void main(String[] args) {
 
     JPanelJuego jpj = new JPanelJuego(imf);
-    JVentanaJuego JVJuego = new JVentanaJuego(jpj);
+    JPanelSuperior jps = new JPanelSuperior();
+    JVentanaJuego JVJuego = new JVentanaJuego(jpj,jps);
     while(true){
       actualizarAliens();
       JPanelJuego.IMF=imf;
       jpj.comprobarColision();
+      jpj.desplazarGrupo();
+      jps.actualizarValores();
       JVJuego.esperar(1);
       JVJuego.repaint();
     }
   }
 
-  public JVentanaJuego(JPanelJuego jpj) {
+  public JVentanaJuego(JPanelJuego jpj,JPanelSuperior jps) {
     this.setLayout(new BorderLayout());
     this.add(jpj,BorderLayout.CENTER);
+    this.add(jps,BorderLayout.NORTH);
     this.configurarJFrame();
     this.setBackground(Color.black);
     jpj.repaint();
