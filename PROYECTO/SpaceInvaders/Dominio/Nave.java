@@ -8,7 +8,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 
 public class Nave extends Volador {
-  Proyectil proyectil = new PNave();
+  private Proyectil proyectil = new PNave();
 
   public Nave(){
     super("/Users/juansb/Documents/GitHub/juansbg.github.io/PROYECTO/SpaceInvaders/Recursos/NaveP1.png","/Users/juansb/Documents/GitHub/juansbg.github.io/PROYECTO/SpaceInvaders/Recursos/NavePM1.png","/Users/juansb/Documents/GitHub/juansbg.github.io/PROYECTO/SpaceInvaders/Recursos/NavePM2.png");
@@ -53,7 +53,7 @@ public class Nave extends Volador {
       }
     }
 
-    public Proyectil getProyectil(){
-      return proyectil;
+    public PNave getProyectil(){
+      return (PNave) proyectil;
     }
 }

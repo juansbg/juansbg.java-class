@@ -6,9 +6,13 @@ import spaceInvaders.util.Constantes;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
+import java.util.Random;
 
 public class Alien extends Volador {
-  private int puntos = 5;
+  private int puntos  = Constantes.PUNTOS_ALIEN_UNO;
+  Random rand         = new Random();
+  private Proyectil proyectil = new PAlien();
+
   public Alien(){
     this(100,100);
     this.setPuntos(5);
@@ -21,7 +25,7 @@ public class Alien extends Volador {
     this.setVisible(true);
   }
 
-  public void comprobarColision(Proyectil proyectil){
+  public void comprobarColision(PNave proyectil){
     if(proyectil.getVisible() && this.getVisible() && (proyectil.getX()>this.getX()) && (proyectil.getX()<(this.getX()+this.getAncho()))){
       if((proyectil.getY()>this.getY()) && (proyectil.getY()<(this.getY()+this.getAltura()))){
         proyectil.setVisible(false);
@@ -29,8 +33,10 @@ public class Alien extends Volador {
         this.setVisible(false);
       }
     }
+    if (rand.nextInt(Constantes.CANTIDAD_DISPAROS_ALIENS) == 50)
+      this.getProyectil().disparo(this);
   }
-
+ 
   public int getPuntos(){
     return puntos;
   }
@@ -53,5 +59,8 @@ public class Alien extends Volador {
       this.setMovY(0);
       this.mover();
     }
+  }
+  public PAlien getProyectil(){
+    return (PAlien) proyectil;
   }
 }

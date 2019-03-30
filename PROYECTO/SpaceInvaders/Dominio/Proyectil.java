@@ -1,4 +1,5 @@
 package spaceInvaders.dominio;
+import spaceInvaders.util.Constantes;
 
 public abstract class Proyectil extends Volador {
 
@@ -10,14 +11,23 @@ public abstract class Proyectil extends Volador {
   }
 
   public void disparo(Volador v){
-    this.setX(v.getX()+25);
-    this.setY(v.getY());
-    this.setVisible(true);
+    if (!this.getVisible()){
+      this.setX(v.getX()+25);
+      this.setY(v.getY());
+      this.setVisible(true);
+    }
   }
 
   public void resetProyectil(){
     this.setVisible(false);
     this.setX(0);
     this.setY(0);
+  }
+
+  public void comprobarPosicion(){
+    if (this.getY() <= 0)
+      this.setVisible(false);
+    else if (this.getY() >= Constantes.Y_SIZE_VENTANA)
+      this.setVisible(false);
   }
 }

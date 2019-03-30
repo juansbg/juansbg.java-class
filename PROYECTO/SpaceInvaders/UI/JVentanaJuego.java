@@ -29,10 +29,9 @@ public class JVentanaJuego extends JFrame implements ActionListener {
     JPanelSuperior jps = new JPanelSuperior();
     JVentanaJuego JVJuego = new JVentanaJuego(jpj,jps);
     while(true){
-      actualizarAliens();
+      actualizarAliens(jpj);
       JPanelJuego.IMF=imf;
       jpj.comprobarColision();
-      jpj.desplazarGrupo();
       jps.actualizarValores();
       JVJuego.esperar(1);
       JVJuego.repaint();
@@ -57,12 +56,15 @@ public class JVentanaJuego extends JFrame implements ActionListener {
     }
   }
 
-  public static void actualizarAliens(){
-    if(imf == ObjetoJuego.IM1 && cnt==4)
+  public static void actualizarAliens(JPanelJuego jpj){
+    if(imf == ObjetoJuego.IM1 && cnt==Constantes.RATIO_ACTUALIZACION_ALIENS){
       imf = ObjetoJuego.IM2;
-    else if(cnt==4)
+      jpj.desplazarGrupo();
+    } else if(cnt==Constantes.RATIO_ACTUALIZACION_ALIENS) {
       imf = ObjetoJuego.IM1;
-    if(cnt==4)
+      jpj.desplazarGrupo();
+    }
+    if(cnt==Constantes.RATIO_ACTUALIZACION_ALIENS)
       cnt=1;
     else
       cnt+=1;

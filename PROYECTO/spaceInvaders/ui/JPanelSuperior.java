@@ -23,8 +23,6 @@ import java.util.Iterator;
 import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 
 public class JPanelSuperior extends JPanel {
   JLabel score;
@@ -56,13 +54,13 @@ public class JPanelSuperior extends JPanel {
 
   private void configLabels(){
     score.setForeground(Color.CYAN);
-    score.setFont(new Font("SANS_SERIF", Font.BOLD, 22));
+    score.setFont(new java.awt.Font("SANS_SERIF", java.awt.Font.BOLD, 22));
     hiscore.setForeground(Color.GREEN);
-    hiscore.setFont(new Font("SANS_SERIF", Font.BOLD, 22));
+    hiscore.setFont(new java.awt.Font("SANS_SERIF", java.awt.Font.BOLD, 22));
     vidas.setForeground(Color.RED);
-    vidas.setFont(new Font("SANS_SERIF", Font.BOLD, 22));
+    vidas.setFont(new java.awt.Font("SANS_SERIF", java.awt.Font.BOLD, 22));
     puntos.setForeground(Color.CYAN);
-    puntos.setFont(new Font("SANS_SERIF", Font.BOLD, 22));
+    puntos.setFont(new java.awt.Font("SANS_SERIF", java.awt.Font.BOLD, 22));
   }
 
   private void configLayout(){

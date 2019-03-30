@@ -1,4 +1,4 @@
-// DUDAS
+// DUDAS y COSAS QUE HACER
 
-// Path imagenes
-// Hitbox
+// Cambiar Constantes a interface
+// Bloquear proyectil

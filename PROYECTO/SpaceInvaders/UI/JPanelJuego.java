@@ -70,9 +70,12 @@ public class JPanelJuego extends JPanel implements ActionListener {
       Alien alien = (Alien) it.next();
       alien.desplazar();
     }
-    if (Constantes.CONTADOR_MOVIMIENTO == -(Constantes.CONTADOR_MOVIMIENTO_INICIAL))
+    if (Constantes.CONTADOR_MOVIMIENTO == -(Constantes.CONTADOR_MOVIMIENTO_INICIAL)) {
       Constantes.CONTADOR_MOVIMIENTO = Constantes.CONTADOR_MOVIMIENTO_INICIAL;
-    Constantes.CONTADOR_MOVIMIENTO += -1;
+      if(Constantes.RATIO_ACTUALIZACION_ALIENS > 5)
+        Constantes.RATIO_ACTUALIZACION_ALIENS = 2;
+    }
+    Constantes.CONTADOR_MOVIMIENTO--;
   }
 
   private void pintarAlien(Graphics g) {
@@ -80,8 +83,13 @@ public class JPanelJuego extends JPanel implements ActionListener {
     Iterator it = aliens.iterator();
     while(it.hasNext()){
       Alien alien = (Alien) it.next();
-      if(alien.getVisible())
+      if(alien.getVisible()){
         g2d.drawImage(alien.getImagen(IMF), alien.getX(), alien.getY(), this);
+        alien.getProyectil().mover();
+        alien.getProyectil().comprobarPosicion();
+        if (alien.getProyectil().getVisible())
+          g2d.drawImage(alien.getProyectil().getImagen(IMF), alien.getProyectil().getX(), alien.getProyectil().getY(), this);
+      }
     }
     g2d.drawImage(nave.getImagen(ObjetoJuego.IM1), nave.getX(), nave.getY(), this);
     nave.getProyectil().mover();
@@ -97,6 +105,7 @@ public class JPanelJuego extends JPanel implements ActionListener {
       Alien alien = (Alien) it.next();
       alien.comprobarColision(nave.getProyectil());
     }
+    nave.getProyectil().comprobarPosicion();
   }
 
   @Override
