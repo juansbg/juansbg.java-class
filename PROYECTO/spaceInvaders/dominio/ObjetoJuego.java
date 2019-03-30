@@ -40,7 +40,7 @@ public abstract class ObjetoJuego {
     return ancho;
   }
 
-  public boolean getVisible(){
+  public boolean isVisible(){
     return visible;
   }
 

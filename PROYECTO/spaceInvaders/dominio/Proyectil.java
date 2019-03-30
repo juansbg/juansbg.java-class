@@ -11,7 +11,7 @@ public abstract class Proyectil extends Volador {
   }
 
   public void disparo(Volador v){
-    if (!this.getVisible()){
+    if (!this.isVisible()){
       this.setX(v.getX()+25);
       this.setY(v.getY());
       this.setVisible(true);

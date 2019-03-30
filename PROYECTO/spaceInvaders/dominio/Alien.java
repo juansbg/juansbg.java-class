@@ -26,7 +26,7 @@ public class Alien extends Volador {
   }
 
   public void comprobarColision(PNave proyectil){
-    if(proyectil.getVisible() && this.getVisible() && (proyectil.getX()>this.getX()) && (proyectil.getX()<(this.getX()+this.getAncho()))){
+    if(proyectil.isVisible() && this.isVisible() && (proyectil.getX()>this.getX()) && (proyectil.getX()<(this.getX()+this.getAncho()))){
       if((proyectil.getY()>this.getY()) && (proyectil.getY()<(this.getY()+this.getAltura()))){
         proyectil.setVisible(false);
         Constantes.PUNTUACION += this.getPuntos();
@@ -36,7 +36,7 @@ public class Alien extends Volador {
     if (rand.nextInt(Constantes.CANTIDAD_DISPAROS_ALIENS) == 50)
       this.getProyectil().disparo(this);
   }
- 
+
   public int getPuntos(){
     return puntos;
   }

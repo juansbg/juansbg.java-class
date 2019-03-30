@@ -73,9 +73,9 @@ public class JPanelJuego extends JPanel implements ActionListener {
     if (Constantes.CONTADOR_MOVIMIENTO == -(Constantes.CONTADOR_MOVIMIENTO_INICIAL)) {
       Constantes.CONTADOR_MOVIMIENTO = Constantes.CONTADOR_MOVIMIENTO_INICIAL;
       if(Constantes.RATIO_ACTUALIZACION_ALIENS > 5)
-        Constantes.RATIO_ACTUALIZACION_ALIENS = 2;
+        Constantes.RATIO_ACTUALIZACION_ALIENS--;
     }
-    Constantes.CONTADOR_MOVIMIENTO--;
+    Constantes.CONTADOR_MOVIMIENTO += -1;
   }
 
   private void pintarAlien(Graphics g) {
@@ -83,17 +83,17 @@ public class JPanelJuego extends JPanel implements ActionListener {
     Iterator it = aliens.iterator();
     while(it.hasNext()){
       Alien alien = (Alien) it.next();
-      if(alien.getVisible()){
+      if(alien.isVisible()){
         g2d.drawImage(alien.getImagen(IMF), alien.getX(), alien.getY(), this);
         alien.getProyectil().mover();
         alien.getProyectil().comprobarPosicion();
-        if (alien.getProyectil().getVisible())
+        if (alien.getProyectil().isVisible())
           g2d.drawImage(alien.getProyectil().getImagen(IMF), alien.getProyectil().getX(), alien.getProyectil().getY(), this);
       }
     }
     g2d.drawImage(nave.getImagen(ObjetoJuego.IM1), nave.getX(), nave.getY(), this);
     nave.getProyectil().mover();
-    if(nave.getProyectil().getVisible())
+    if(nave.getProyectil().isVisible())
       g2d.drawImage(nave.getProyectil().getImagen(ObjetoJuego.IM1), nave.getProyectil().getX(), nave.getProyectil().getY(), this);
     // this.comprobarColision();
     // ARREGLAR CONSTANTE
