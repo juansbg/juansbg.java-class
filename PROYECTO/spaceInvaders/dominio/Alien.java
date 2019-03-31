@@ -9,13 +9,13 @@ import javax.swing.ImageIcon;
 import java.util.Random;
 
 public class Alien extends Volador {
-  private int puntos  = Constantes.PUNTOS_ALIEN_UNO;
+  private int puntos;
   Random rand         = new Random();
   private Proyectil proyectil = new PAlien();
 
   public Alien(){
     this(100,100);
-    this.setPuntos(5);
+    this.setPuntos(Constantes.PUNTOS_ALIEN_UNO);
   }
 
   public Alien(int x, int y){
@@ -23,16 +23,16 @@ public class Alien extends Volador {
     this.setX(x);
     this.setY(y);
     this.setVisible(true);
+    this.setPuntos(Constantes.PUNTOS_ALIEN_UNO);
   }
 
   public void comprobarColision(PNave proyectil){
-    if(proyectil.isVisible() && this.isVisible() && (proyectil.getX()>this.getX()) && (proyectil.getX()<(this.getX()+this.getAncho()))){
+    if(proyectil.isVisible() && this.isVisible() && (proyectil.getX()>this.getX()) && (proyectil.getX()<(this.getX()+this.getAncho())))
       if((proyectil.getY()>this.getY()) && (proyectil.getY()<(this.getY()+this.getAltura()))){
         proyectil.setVisible(false);
         Constantes.PUNTUACION += this.getPuntos();
         this.setVisible(false);
       }
-    }
     if (rand.nextInt(Constantes.CANTIDAD_DISPAROS_ALIENS) == 50)
       this.getProyectil().disparo(this);
   }

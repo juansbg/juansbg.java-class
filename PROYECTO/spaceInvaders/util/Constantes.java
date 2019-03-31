@@ -17,7 +17,7 @@ public class Constantes {
 
   public static final int     NUM_ALIENS                  = 10;   // Num de aliens por fila
   public static final int     VELOCIDAD_ALIENS            = 10;   // Velocidad aliens
-  public static int           RATIO_ACTUALIZACION_ALIENS  = 8;
+  public static int           RATIO_ACTUALIZACION_ALIENS  = 3;
 
   public static final int     CONTADOR_MOVIMIENTO_INICIAL = (int) ((X_SIZE_VENTANA/2)-150)/VELOCIDAD_ALIENS;
   public static int           CONTADOR_MOVIMIENTO         = CONTADOR_MOVIMIENTO_INICIAL;
@@ -28,4 +28,6 @@ public class Constantes {
   public static final int     PUNTOS_ALIEN_DOS            = 40;
   public static final int     PUNTOS_ALIEN_TRES           = 10;
   public static int           PUNTUACION                  = 0;
+
+  public static int           SECUENCIA_MUERTE            = 0;
 }

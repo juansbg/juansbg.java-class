@@ -43,7 +43,7 @@ public class JPanelJuego extends JPanel implements ActionListener {
   @Override
   public void paintComponent(Graphics g) {
     super.paintComponent(g);
-    this.pintarAlien(g);
+    this.pintarTodo(g);
     Toolkit.getDefaultToolkit().sync();
   }
 
@@ -72,13 +72,13 @@ public class JPanelJuego extends JPanel implements ActionListener {
     }
     if (Constantes.CONTADOR_MOVIMIENTO == -(Constantes.CONTADOR_MOVIMIENTO_INICIAL)) {
       Constantes.CONTADOR_MOVIMIENTO = Constantes.CONTADOR_MOVIMIENTO_INICIAL;
-      if(Constantes.RATIO_ACTUALIZACION_ALIENS > 5)
+      if(Constantes.RATIO_ACTUALIZACION_ALIENS > 3)
         Constantes.RATIO_ACTUALIZACION_ALIENS--;
     }
     Constantes.CONTADOR_MOVIMIENTO += -1;
   }
 
-  private void pintarAlien(Graphics g) {
+  private void pintarTodo(Graphics g) {
     Graphics2D g2d = (Graphics2D) g;
     Iterator it = aliens.iterator();
     while(it.hasNext()){
@@ -91,12 +91,16 @@ public class JPanelJuego extends JPanel implements ActionListener {
           g2d.drawImage(alien.getProyectil().getImagen(IMF), alien.getProyectil().getX(), alien.getProyectil().getY(), this);
       }
     }
-    g2d.drawImage(nave.getImagen(ObjetoJuego.IM1), nave.getX(), nave.getY(), this);
+    if(nave.isVisible())
+      if(Constantes.SECUENCIA_MUERTE == 0)
+        g2d.drawImage(nave.getImagen(ObjetoJuego.IM1), nave.getX(), nave.getY(), this);
+      if(Constantes.SECUENCIA_MUERTE == 1)
+        g2d.drawImage(nave.getImagen(ObjetoJuego.IM2), nave.getX()-10, nave.getY()-10, this);
+      if(Constantes.SECUENCIA_MUERTE == 2)
+        g2d.drawImage(nave.getImagen(ObjetoJuego.IM3), nave.getX()-12, nave.getY()-10, this);
     nave.getProyectil().mover();
     if(nave.getProyectil().isVisible())
       g2d.drawImage(nave.getProyectil().getImagen(ObjetoJuego.IM1), nave.getProyectil().getX(), nave.getProyectil().getY(), this);
-    // this.comprobarColision();
-    // ARREGLAR CONSTANTE
   }
 
   public void comprobarColision() {
@@ -104,6 +108,7 @@ public class JPanelJuego extends JPanel implements ActionListener {
     while(it.hasNext()){
       Alien alien = (Alien) it.next();
       alien.comprobarColision(nave.getProyectil());
+      nave.comprobarColision(alien.getProyectil(),this);
     }
     nave.getProyectil().comprobarPosicion();
   }
@@ -113,6 +118,24 @@ public class JPanelJuego extends JPanel implements ActionListener {
     nave.mover();
     this.repaint(nave.getX()-1, nave.getY()-1,
                  nave.getAncho()+2, nave.getAltura()+2);
+  }
+
+  public void muerteNave(){
+    Constantes.SECUENCIA_MUERTE = 1;
+    this.repaint();
+    this.esperar(5);
+    Constantes.SECUENCIA_MUERTE = 2;
+    this.repaint();
+    this.esperar(5);
+    Constantes.SECUENCIA_MUERTE = 0;
+  }
+
+  private void esperar(int i){
+    try {
+      Thread.sleep(i*50);
+    }
+    catch(Exception e){
+    }
   }
 
   private class JuegoKeyAdapter extends KeyAdapter {

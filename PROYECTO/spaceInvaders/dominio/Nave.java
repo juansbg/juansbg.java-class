@@ -1,6 +1,7 @@
 package spaceInvaders.dominio;
 
 import spaceInvaders.ui.JVentanaJuego;
+import spaceInvaders.ui.JPanelJuego;
 import spaceInvaders.util.Constantes;
 
 import java.awt.Image;
@@ -14,6 +15,17 @@ public class Nave extends Volador {
     super("/Users/juansb/Documents/GitHub/juansbg.github.io/PROYECTO/SpaceInvaders/Recursos/NaveP1.png","/Users/juansb/Documents/GitHub/juansbg.github.io/PROYECTO/SpaceInvaders/Recursos/NavePM1.png","/Users/juansb/Documents/GitHub/juansbg.github.io/PROYECTO/SpaceInvaders/Recursos/NavePM2.png");
     this.setX((Integer) Constantes.X_SIZE_VENTANA/2 -26);
     this.setY(Constantes.Y_SIZE_VENTANA - 100);
+  }
+
+  public void comprobarColision(PAlien proyectil, JPanelJuego jpj){
+    if(proyectil.isVisible() && this.isVisible())
+      if((proyectil.getX()>this.getX()) && (proyectil.getX()<(this.getX()+this.getAncho())))
+        if(proyectil.getY()>this.getY()){
+          // No se llega a cumplir
+          proyectil.setVisible(false);
+          //this.setVisible(false);
+          jpj.muerteNave();
+        }
   }
 
   public void keyPressed(KeyEvent e) {
