@@ -44,7 +44,7 @@ public class JPanelJuego extends JPanel implements ActionListener {
   public void paintComponent(Graphics g) {
     super.paintComponent(g);
     this.pintarTodo(g);
-    Toolkit.getDefaultToolkit().sync();
+    //Toolkit.getDefaultToolkit().sync();
   }
 
   private void configObjetos(){

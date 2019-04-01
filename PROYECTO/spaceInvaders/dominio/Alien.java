@@ -12,7 +12,6 @@ public class Alien extends Volador {
   private int puntos;
   Random rand         = new Random();
   private Proyectil proyectil = new PAlien();
-
   public Alien(){
     this(100,100);
     this.setPuntos(Constantes.PUNTOS_ALIEN_UNO);

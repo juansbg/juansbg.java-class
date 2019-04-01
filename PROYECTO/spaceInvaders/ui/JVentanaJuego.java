@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.ImageIcon;
+
 import java.awt.BorderLayout;
 import java.awt.*;
 import java.util.ArrayList;
@@ -24,10 +26,11 @@ public class JVentanaJuego extends JFrame implements ActionListener {
   public static int cnt = 1; // Contador para actualizar imagen aliens
 
   public static void main(String[] args) {
-
     JPanelJuego jpj = new JPanelJuego(imf);
     JPanelSuperior jps = new JPanelSuperior();
     JVentanaJuego jvJuego = new JVentanaJuego(jpj,jps);
+    //jvJuego.setIconImage(new ImageIcon("spaceInvaders/recursos/Alien1P1_BLANCO.png").getImage());
+
     while(true){
       actualizarAliens(jpj);
       JPanelJuego.IMF=imf;
@@ -44,6 +47,8 @@ public class JVentanaJuego extends JFrame implements ActionListener {
     this.add(jps,BorderLayout.NORTH);
     this.configurarJFrame();
     this.setBackground(Color.black);
+    ImageIcon iconImage = new ImageIcon("spaceInvaders/recursos/icon.png"); // ESTO NO FUNCIONA
+    this.setIconImage(iconImage.getImage());                                // ESTO NO FUNCIONA
     jpj.repaint();
     this.setVisible(true);
   }
