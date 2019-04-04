@@ -13,6 +13,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Toolkit;
+import java.awt.FlowLayout;
+import java.awt.BorderLayout;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,6 +25,7 @@ import java.util.Iterator;
 import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.*;
+import java.lang.StringBuilder;
 
 public class JPanelSuperior extends JPanel {
   JLabel score;
@@ -31,23 +34,49 @@ public class JPanelSuperior extends JPanel {
   JLabel puntos;
   JLabel espacio;
   JPanel panelWest;
+  JPanel panelEast;
+  JPanel panelVidas;
+  ImageIcon icon = new ImageIcon("spaceInvaders/recursos/vida.png");
+  JLabel vida1;
+  JLabel vida2;
+  JLabel vida3;
 
   public JPanelSuperior(){
     score       = new JLabel("Score: ");
     hiscore     = new JLabel("Hi-Score: ");
     vidas       = new JLabel("Vidas: ");
     espacio     = new JLabel("     ");
-    puntos      = new JLabel("00000");
+    puntos      = new JLabel("--------");
     panelWest   = new JPanel();
+    panelEast   = new JPanel();
+    panelVidas  = new JPanel();
+    vida1     = new JLabel("");
+    vida2     = new JLabel("");
+    vida3     = new JLabel("");
+    vida1.setIcon(icon);
+    vida2.setIcon(icon);
+    vida3.setIcon(icon);
     this.configLabels();
     this.setBackground(Color.black);
     this.configLayout();
   }
 
   public void actualizarValores(){
-    puntos.setText(Integer.toString(Constantes.PUNTUACION));
+    StringBuilder sb = new StringBuilder();
+    sb.append("  ")
+      .append(Integer.toString(Constantes.PUNTUACION))
+      .append("   ");
+    puntos.setText(sb.toString());
     panelWest.add(puntos,BorderLayout.CENTER);
+    if(Constantes.VIDAS<3)
+      vida3.setIcon(null);
+    if(Constantes.VIDAS<2)
+      vida2.setIcon(null);
+    if(Constantes.VIDAS<1)
+      vida1.setIcon(null);
     puntos.repaint();
+    panelVidas.repaint();
+    panelEast.repaint();
     panelWest.repaint();
     this.repaint();
   }
@@ -66,12 +95,20 @@ public class JPanelSuperior extends JPanel {
   private void configLayout(){
     this.setLayout(new BorderLayout());
     panelWest.setLayout(new BorderLayout());
+    panelEast.setLayout(new FlowLayout());
     panelWest.add(score,BorderLayout.WEST);
     panelWest.add(puntos,BorderLayout.CENTER);
     panelWest.add(espacio,BorderLayout.EAST);
     panelWest.setBackground(Color.black);
+    panelEast.add(vidas);
+    panelVidas.add(vida1);
+    panelVidas.add(vida2);
+    panelVidas.add(vida3);
+    panelEast.add(panelVidas);
+    panelEast.setBackground(Color.black);
+    panelVidas.setBackground(Color.black);
     this.add(panelWest,BorderLayout.WEST);
     this.add(hiscore,BorderLayout.CENTER);
-    this.add(vidas,BorderLayout.EAST);
+    this.add(panelEast,BorderLayout.EAST);
   }
 }

@@ -27,7 +27,9 @@ public class Constantes {
   public static final int     PUNTOS_ALIEN_UNO            = 20;
   public static final int     PUNTOS_ALIEN_DOS            = 40;
   public static final int     PUNTOS_ALIEN_TRES           = 10;
-  public static int           PUNTUACION                  = 0;
+  public static int           PUNTUACION                  =  0;
 
-  public static int           SECUENCIA_MUERTE            = 0;
+  public static int           VIDAS                       =  3;
+
+  public static int           SECUENCIA_MUERTE            =  0;
 }
