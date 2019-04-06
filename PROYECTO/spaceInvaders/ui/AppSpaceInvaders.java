@@ -1,6 +1,8 @@
 package spaceInvaders.ui;
 
 import spaceInvaders.util.Constantes;
+import spaceInvaders.dominio.Usuario;
+import java.util.Iterator;
 
 public class AppSpaceInvaders {
   public static JPanelJuego jpj;
@@ -20,6 +22,7 @@ public class AppSpaceInvaders {
         jpj.comprobarColision();
         jps.actualizarValores();
       }
+      jvJuego.comprobarVida();
       jvJuego.esperar(1);
       jvJuego.repaint();
     }

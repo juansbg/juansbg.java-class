@@ -1,5 +1,9 @@
 package spaceInvaders.util;
 
+import spaceInvaders.dominio.Usuario;
+import java.util.Collection;
+import java.util.ArrayList;
+
 public class Constantes {
   public static final int     X_INICIAL                   = 30;   // Posición inicial del primer alien arriba a la izquierda
   public static final int     Y_INICIAL                   = 10;
@@ -39,4 +43,5 @@ public class Constantes {
   public static boolean       READY                       = false;
 
   public static Usuario       JUGADOR                     = null;
+  public static Collection    JUGADORES                   = new ArrayList();
 }

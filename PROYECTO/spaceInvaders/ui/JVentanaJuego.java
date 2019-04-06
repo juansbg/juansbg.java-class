@@ -4,6 +4,8 @@ import spaceInvaders.dominio.Alien;
 import spaceInvaders.dominio.Nave;
 import spaceInvaders.dominio.ObjetoJuego;
 import spaceInvaders.util.Constantes;
+import spaceInvaders.dominio.Usuario;
+import spaceInvaders.io.IOUsuario;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -24,8 +26,16 @@ import java.awt.event.KeyEvent;
 public class JVentanaJuego extends JFrame implements ActionListener {
   public static int imf = ObjetoJuego.IM1; // Imagen final de cada alien
   public static int cnt = 1; // Contador para actualizar imagen aliens
+  IOUsuario iou = new IOUsuario();
 
   public JVentanaJuego(JPanelJuego jpj,JPanelSuperior jps) {
+    Constantes.JUGADORES = iou.leerUsuarios();
+    Iterator it = Constantes.JUGADORES.iterator();
+    while(it.hasNext()){
+      Usuario u = (Usuario) it.next();
+      System.out.println(u.getNick());
+      System.out.println(u.getPuntos());
+    }
     this.setLayout(new BorderLayout());
     this.add(jpj,BorderLayout.CENTER);
     this.add(jps,BorderLayout.NORTH);
@@ -57,6 +67,15 @@ public class JVentanaJuego extends JFrame implements ActionListener {
       cnt=1;
     else
       cnt+=1;
+  }
+  public void comprobarVida(){
+    if(Constantes.READY)
+      if(Constantes.VIDAS==0){
+        Constantes.JUGADOR.setPuntos(Constantes.PUNTUACION);
+        Constantes.JUGADORES.add(Constantes.JUGADOR);
+        iou.escribirUsuarios(Constantes.JUGADORES);
+        Constantes.READY=false;
+      }
   }
 
   private void configurarJFrame(){
