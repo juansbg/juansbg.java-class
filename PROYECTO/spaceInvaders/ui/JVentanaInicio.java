@@ -9,6 +9,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
+import javax.swing.BorderFactory;
+import javax.swing.SwingConstants;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -22,17 +24,26 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 public class JVentanaInicio extends JFrame implements ActionListener {
   JLabel logo;
   JPanel logoDisp;
+  JPanel interfaz;
   ImageIcon icon = new ImageIcon("spaceInvaders/recursos/logo/logoFinal.png");
+  ImageIcon iconButton = new ImageIcon("spaceInvaders/recursos/elementos/boton.png");
+  JLabel ponerNombre;
+  JButton start;
+  JTextField nombre;
+  JVentanaJuego jvJuego;
 
-  public JVentanaInicio(){
+  public JVentanaInicio(JVentanaJuego jvJuego){
+    this.jvJuego = jvJuego;
     this.configurarJFrame();
     this.setLayout(new BorderLayout());
     this.iniciarComponentes();
     this.colocarComponentes();
+    this.ponerListener();
     this.repaint();
     this.setVisible(true);
   }
@@ -49,18 +60,61 @@ public class JVentanaInicio extends JFrame implements ActionListener {
   private void iniciarComponentes(){
     logo = new JLabel("");
     logoDisp = new JPanel();
+    interfaz = new JPanel();
+    ponerNombre = new JLabel("Nombre:   ",SwingConstants.RIGHT);
+    start = new JButton();
+    nombre = new JTextField();
+    start.setIcon(iconButton);
     logoDisp.setLayout(new FlowLayout());
     logoDisp.setBackground(Color.black);
+    interfaz.setLayout(new GridLayout(1,3));
+    interfaz.setBackground(Color.black);
     logo.setIcon(icon);
     logo.setBackground(Color.black);
+    ponerNombre.setForeground(Color.yellow);
+    ponerNombre.setFont(new java.awt.Font("SANS_SERIF", java.awt.Font.BOLD, 26));
+    nombre.setForeground(Color.yellow);
+    nombre.setBackground(Color.black);
+    nombre.setBorder(BorderFactory.createEmptyBorder());
+    nombre.setFont(new java.awt.Font("SANS_SERIF", java.awt.Font.BOLD, 26));
+    nombre.addKeyListener(new InicioKeyAdapter());
+    start.setBorder(BorderFactory.createEmptyBorder());
+    start.setContentAreaFilled(false);
   }
 
   private void colocarComponentes(){
     logoDisp.add(logo);
+    interfaz.add(ponerNombre);
+    interfaz.add(nombre);
+    interfaz.add(start);
     this.add(logoDisp,BorderLayout.CENTER);
+    this.add(interfaz,BorderLayout.SOUTH);
+  }
+
+  private void ponerListener(){
+    start.addActionListener(this);
   }
 
   @Override
   public void actionPerformed(ActionEvent e){
+    this.comenzar();
+  }
+
+  private class InicioKeyAdapter extends KeyAdapter {
+        @Override
+        public void keyPressed(KeyEvent e) {
+          int key = e.getKeyCode();
+          if (key == KeyEvent.VK_ENTER) {
+            JVentanaInicio.this.comenzar();
+          }
+        }
+  }
+
+  private void comenzar(){
+    String nom = nombre.getText();
+    Constantes.JUGADOR = new Usuario(nom);
+    this.setVisible(false);
+    Constantes.READY = true;
+    jvJuego.setVisible(true);
   }
 }
