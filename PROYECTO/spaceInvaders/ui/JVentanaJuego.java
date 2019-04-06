@@ -25,22 +25,6 @@ public class JVentanaJuego extends JFrame implements ActionListener {
   public static int imf = ObjetoJuego.IM1; // Imagen final de cada alien
   public static int cnt = 1; // Contador para actualizar imagen aliens
 
-  public static void main(String[] args) {
-    JPanelJuego jpj = new JPanelJuego(imf);
-    JPanelSuperior jps = new JPanelSuperior();
-    JVentanaJuego jvJuego = new JVentanaJuego(jpj,jps);
-    //jvJuego.setIconImage(new ImageIcon("spaceInvaders/recursos/Alien1P1_BLANCO.png").getImage());
-
-    while(true){
-      actualizarAliens(jpj);
-      JPanelJuego.IMF=imf;
-      jpj.comprobarColision();
-      jps.actualizarValores();
-      jvJuego.esperar(1);
-      jvJuego.repaint();
-    }
-  }
-
   public JVentanaJuego(JPanelJuego jpj,JPanelSuperior jps) {
     this.setLayout(new BorderLayout());
     this.add(jpj,BorderLayout.CENTER);
@@ -53,7 +37,7 @@ public class JVentanaJuego extends JFrame implements ActionListener {
     this.setVisible(true);
   }
 
-  private void esperar(int i){
+  public void esperar(int i){
     try {
       Thread.sleep(i*50);
     }

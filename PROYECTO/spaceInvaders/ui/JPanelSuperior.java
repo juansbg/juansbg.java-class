@@ -42,7 +42,7 @@ public class JPanelSuperior extends JPanel {
   JLabel vida3;
 
   public JPanelSuperior(){
-    score       = new JLabel("Score: ");
+    score       = new JLabel("     Score: ");
     hiscore     = new JLabel("Hi-Score: ");
     vidas       = new JLabel("Vidas: ");
     espacio     = new JLabel("     ");
@@ -63,7 +63,7 @@ public class JPanelSuperior extends JPanel {
 
   public void actualizarValores(){
     StringBuilder sb = new StringBuilder();
-    sb.append("  ")
+    sb.append("")
       .append(Integer.toString(Constantes.PUNTUACION))
       .append("   ");
     puntos.setText(sb.toString());
@@ -107,8 +107,8 @@ public class JPanelSuperior extends JPanel {
     panelEast.add(panelVidas);
     panelEast.setBackground(Color.black);
     panelVidas.setBackground(Color.black);
-    this.add(panelWest,BorderLayout.WEST);
-    this.add(hiscore,BorderLayout.CENTER);
+    this.add(panelWest,BorderLayout.CENTER);
+    this.add(hiscore,BorderLayout.WEST);
     this.add(panelEast,BorderLayout.EAST);
   }
 }

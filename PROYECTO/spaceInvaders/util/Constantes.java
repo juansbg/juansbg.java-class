@@ -11,6 +11,9 @@ public class Constantes {
   public static final int     X_SIZE_VENTANA              = 1200; // Tamaño ventana
   public static final int     Y_SIZE_VENTANA              = 750;
 
+  public static final int     X_SIZE_VENTANA_INICIO       = 500; // Tamaño ventana de inicio
+  public static final int     Y_SIZE_VENTANA_INICIO       = 300;
+
   public static final int     VELOC_PROYEC                = 20;   // Velocidad proyectiles
 
   public static final int     VELOCIDAD                   = 15;   // Velocidad de nave
