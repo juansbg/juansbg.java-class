@@ -29,7 +29,7 @@ public class Constantes {
   public static final int     CONTADOR_MOVIMIENTO_INICIAL = (int) ((X_SIZE_VENTANA/2)-150)/VELOCIDAD_ALIENS;
   public static int           CONTADOR_MOVIMIENTO         = CONTADOR_MOVIMIENTO_INICIAL;
 
-  public static final int     CANTIDAD_DISPAROS_ALIENS    = 200;  // Proporción de disparos, debe ser mayor a 50
+  public static final int     CANTIDAD_DISPAROS_ALIENS    = 100;  // Proporción de disparos, debe ser mayor a 50
                                                                   // Cuanto mayor, menos disparos
   public static final int     PUNTOS_ALIEN_UNO            = 20;
   public static final int     PUNTOS_ALIEN_DOS            = 40;
@@ -44,4 +44,11 @@ public class Constantes {
 
   public static Usuario       JUGADOR                     = null;
   public static Collection    JUGADORES                   = new ArrayList();
+
+  public static String        JUGADOR_PRIMERO             = null;
+  public static String        JUGADOR_SEGUNDO             = null;
+  public static String        JUGADOR_TERCERO             = null;
+  public static String        JUGADOR_CUARTO              = null;
+  public static String        JUGADOR_QUINTO              = null;
+
 }

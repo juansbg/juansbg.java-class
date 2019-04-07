@@ -30,12 +30,14 @@ import java.lang.StringBuilder;
 public class JPanelSuperior extends JPanel {
   JLabel score;
   JLabel hiscore;
+  JLabel jugadorHiscore;
   JLabel vidas;
   JLabel puntos;
   JLabel espacio;
   JPanel panelWest;
   JPanel panelEast;
   JPanel panelVidas;
+  JPanel panelIzquierdo;
   ImageIcon icon = new ImageIcon("spaceInvaders/recursos/vida.png");
   JLabel vida1;
   JLabel vida2;
@@ -44,12 +46,14 @@ public class JPanelSuperior extends JPanel {
   public JPanelSuperior(){
     score       = new JLabel("     Score: ");
     hiscore     = new JLabel("Hi-Score: ");
+    jugadorHiscore = new JLabel(Constantes.JUGADOR_PRIMERO);
     vidas       = new JLabel("Vidas: ");
     espacio     = new JLabel("     ");
     puntos      = new JLabel("--------");
     panelWest   = new JPanel();
     panelEast   = new JPanel();
     panelVidas  = new JPanel();
+    panelIzquierdo = new JPanel();
     vida1     = new JLabel("");
     vida2     = new JLabel("");
     vida3     = new JLabel("");
@@ -74,6 +78,7 @@ public class JPanelSuperior extends JPanel {
       vida2.setIcon(null);
     if(Constantes.VIDAS<1)
       vida1.setIcon(null);
+    jugadorHiscore.setText(Constantes.JUGADOR_PRIMERO);
     puntos.repaint();
     panelVidas.repaint();
     panelEast.repaint();
@@ -86,6 +91,8 @@ public class JPanelSuperior extends JPanel {
     score.setFont(new java.awt.Font("SANS_SERIF", java.awt.Font.BOLD, 22));
     hiscore.setForeground(Color.GREEN);
     hiscore.setFont(new java.awt.Font("SANS_SERIF", java.awt.Font.BOLD, 22));
+    jugadorHiscore.setForeground(Color.GREEN);
+    jugadorHiscore.setFont(new java.awt.Font("SANS_SERIF", java.awt.Font.BOLD, 22));
     vidas.setForeground(Color.RED);
     vidas.setFont(new java.awt.Font("SANS_SERIF", java.awt.Font.BOLD, 22));
     puntos.setForeground(Color.CYAN);
@@ -96,6 +103,7 @@ public class JPanelSuperior extends JPanel {
     this.setLayout(new BorderLayout());
     panelWest.setLayout(new BorderLayout());
     panelEast.setLayout(new FlowLayout());
+    panelIzquierdo.setLayout(new FlowLayout());
     panelWest.add(score,BorderLayout.WEST);
     panelWest.add(puntos,BorderLayout.CENTER);
     panelWest.add(espacio,BorderLayout.EAST);
@@ -107,8 +115,11 @@ public class JPanelSuperior extends JPanel {
     panelEast.add(panelVidas);
     panelEast.setBackground(Color.black);
     panelVidas.setBackground(Color.black);
+    panelIzquierdo.setBackground(Color.black);
+    panelIzquierdo.add(hiscore);
+    panelIzquierdo.add(jugadorHiscore);
     this.add(panelWest,BorderLayout.CENTER);
-    this.add(hiscore,BorderLayout.WEST);
+    this.add(panelIzquierdo,BorderLayout.WEST);
     this.add(panelEast,BorderLayout.EAST);
   }
 }

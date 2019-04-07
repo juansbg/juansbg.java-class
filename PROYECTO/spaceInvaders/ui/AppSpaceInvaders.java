@@ -9,11 +9,13 @@ public class AppSpaceInvaders {
   public static JPanelSuperior jps;
   public static JVentanaInicio jvInicio;
   public static JVentanaJuego jvJuego;
+  public static JVentanaFinal jvFinal;
   public static void main(String[] args) {
-    jpj = new JPanelJuego(JVentanaJuego.imf);
-    jps = new JPanelSuperior();
-    jvJuego = new JVentanaJuego(jpj,jps);
-    jvInicio = new JVentanaInicio(jvJuego);
+    jpj       = new JPanelJuego(JVentanaJuego.imf);
+    jps       = new JPanelSuperior();
+    jvFinal   = new JVentanaFinal();
+    jvJuego   = new JVentanaJuego(jpj,jps,jvFinal);
+    jvInicio  = new JVentanaInicio(jvJuego);
     //jvJuego.setIconImage(new ImageIcon("spaceInvaders/recursos/Alien1P1_BLANCO.png").getImage());
     while(true){
       if(Constantes.READY){

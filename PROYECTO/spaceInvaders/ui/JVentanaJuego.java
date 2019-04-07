@@ -22,20 +22,21 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
 
 public class JVentanaJuego extends JFrame implements ActionListener {
   public static int imf = ObjetoJuego.IM1; // Imagen final de cada alien
   public static int cnt = 1; // Contador para actualizar imagen aliens
   IOUsuario iou = new IOUsuario();
+  JVentanaFinal jvf;
 
-  public JVentanaJuego(JPanelJuego jpj,JPanelSuperior jps) {
-    Constantes.JUGADORES = iou.leerUsuarios();
-    Iterator it = Constantes.JUGADORES.iterator();
-    while(it.hasNext()){
-      Usuario u = (Usuario) it.next();
-      System.out.println(u.getNick());
-      System.out.println(u.getPuntos());
-    }
+  HashMap listaLeaderboard = new HashMap();
+
+  public JVentanaJuego(JPanelJuego jpj,JPanelSuperior jps,JVentanaFinal jvf) {
+    this.jvf = jvf;
+    this.ordenarLeaderboard();
     this.setLayout(new BorderLayout());
     this.add(jpj,BorderLayout.CENTER);
     this.add(jps,BorderLayout.NORTH);
@@ -75,7 +76,60 @@ public class JVentanaJuego extends JFrame implements ActionListener {
         Constantes.JUGADORES.add(Constantes.JUGADOR);
         iou.escribirUsuarios(Constantes.JUGADORES);
         Constantes.READY=false;
+        this.setVisible(false);
+        this.ordenarLeaderboard();
+        jvf.actualizarLeaderboard();
+        jvf.setVisible(true);
       }
+  }
+
+  public void ordenarLeaderboard(){
+    Constantes.JUGADORES = iou.leerUsuarios();
+    Integer[] puntosOrdenados = new Integer[Constantes.JUGADORES.size()];
+    Iterator it = Constantes.JUGADORES.iterator();
+    int i = 0;
+    while(it.hasNext()){
+      Usuario u = (Usuario) it.next();
+      listaLeaderboard.put(u.getPuntos(),u);
+      puntosOrdenados[i] = u.getPuntos();
+      i += 1;
+    }
+    try{
+      Arrays.sort(puntosOrdenados, Collections.reverseOrder());
+    } catch(Exception e){
+
+    }
+    Constantes.JUGADOR_PRIMERO = construirString(0,puntosOrdenados);
+    Constantes.JUGADOR_SEGUNDO = construirString(1,puntosOrdenados);
+    Constantes.JUGADOR_TERCERO = construirString(2,puntosOrdenados);
+    Constantes.JUGADOR_CUARTO  = construirString(3,puntosOrdenados);
+    Constantes.JUGADOR_QUINTO  = construirString(4,puntosOrdenados);
+  }
+
+  private String construirString(int i,Integer[] puntosOrdenados){
+    StringBuilder jpri = new StringBuilder();
+    String s;
+    try{
+      Usuario u = (Usuario) listaLeaderboard.get(puntosOrdenados[i]);
+      jpri.append(" ")
+          .append(u.getNick())
+          .append(": ")
+          .append(u.getPuntos());
+      s = jpri.toString();
+    } catch(NullPointerException npe) {
+      jpri.append(" ")
+          .append("-----")
+          .append(": ")
+          .append("-----");
+      s = jpri.toString();
+    } catch(ArrayIndexOutOfBoundsException aioobe) {
+      jpri.append(" ")
+          .append("-----")
+          .append(": ")
+          .append("-----");
+      s = jpri.toString();
+    }
+    return s;
   }
 
   private void configurarJFrame(){
