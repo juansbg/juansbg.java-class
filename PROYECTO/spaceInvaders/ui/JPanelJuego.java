@@ -60,7 +60,11 @@ public class JPanelJuego extends JPanel implements ActionListener {
       aliens.add(new Alien(x+Constantes.SEPARACION_LATERAL*i+5,y+3*Constantes.SEPARACION_VERTICAL));
     for(int i = 0;i<=Constantes.NUM_ALIENS-1;i++)
       aliens.add(new AlienTres(x+Constantes.SEPARACION_LATERAL*i,y+4*Constantes.SEPARACION_VERTICAL));
-    nave = new Nave();
+    if(Constantes.PRIMERA_VEZ){
+      nave = new Nave();
+      Constantes.PRIMERA_VEZ = false;
+    }
+    Constantes.CONTADOR_MOVIMIENTO = Constantes.CONTADOR_MOVIMIENTO_INICIAL;
     this.repaint();
   }
 
@@ -105,12 +109,17 @@ public class JPanelJuego extends JPanel implements ActionListener {
 
   public void comprobarColision() {
     Iterator it = aliens.iterator();
+    boolean todosMuertos = true;
     while(it.hasNext()){
       Alien alien = (Alien) it.next();
+      if(alien.isVisible())
+        todosMuertos = false;
       alien.comprobarColision(nave.getProyectil());
       nave.comprobarColision(alien.getProyectil(),this);
     }
     nave.getProyectil().comprobarPosicion();
+    if(todosMuertos)
+      this.configObjetos();
   }
 
   @Override

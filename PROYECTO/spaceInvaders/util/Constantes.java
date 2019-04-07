@@ -41,6 +41,7 @@ public class Constantes {
   public static int           SECUENCIA_MUERTE            =  0;
 
   public static boolean       READY                       = false;
+  public static boolean       PRIMERA_VEZ                 = true;
 
   public static Usuario       JUGADOR                     = null;
   public static Collection    JUGADORES                   = new ArrayList();
@@ -50,5 +51,4 @@ public class Constantes {
   public static String        JUGADOR_TERCERO             = null;
   public static String        JUGADOR_CUARTO              = null;
   public static String        JUGADOR_QUINTO              = null;
-
 }
