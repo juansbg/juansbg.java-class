@@ -75,7 +75,8 @@ public class JVentanaInicio extends JFrame implements ActionListener {
     ponerNombre.setFont(new java.awt.Font("SANS_SERIF", java.awt.Font.BOLD, 26));
     nombre.setForeground(Color.yellow);
     nombre.setBackground(Color.black);
-    nombre.setBorder(BorderFactory.createEmptyBorder());
+    //nombre.setBorder(BorderFactory.createEmptyBorder());
+    nombre.setBorder(BorderFactory.createEtchedBorder(Color.yellow,Color.green));
     nombre.setFont(new java.awt.Font("SANS_SERIF", java.awt.Font.BOLD, 26));
     nombre.addKeyListener(new InicioKeyAdapter());
     start.setBorder(BorderFactory.createEmptyBorder());
@@ -101,13 +102,13 @@ public class JVentanaInicio extends JFrame implements ActionListener {
   }
 
   private class InicioKeyAdapter extends KeyAdapter {
-        @Override
-        public void keyPressed(KeyEvent e) {
-          int key = e.getKeyCode();
-          if (key == KeyEvent.VK_ENTER) {
-            JVentanaInicio.this.comenzar();
-          }
-        }
+    @Override
+    public void keyPressed(KeyEvent e) {
+      int key = e.getKeyCode();
+      if (key == KeyEvent.VK_ENTER) {
+        JVentanaInicio.this.comenzar();
+      }
+    }
   }
 
   private void comenzar(){

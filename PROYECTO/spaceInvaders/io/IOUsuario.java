@@ -17,9 +17,6 @@ public class IOUsuario {
       oos.close();
       fos.close();
     }
-    /*catch(FileNotFoundException fnfe){
-
-    }*/
     catch(IOException ioe){
       ioe.printStackTrace();
     }
@@ -35,7 +32,6 @@ public class IOUsuario {
             try {
                 user =(Usuario) ois.readObject();
             } catch (EOFException eof){
-              
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }

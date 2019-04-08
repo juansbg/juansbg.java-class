@@ -110,7 +110,7 @@ public class JVentanaFinal extends JFrame implements ActionListener {
     this.add(leaderboard,BorderLayout.CENTER);
   }
   public void actualizarLeaderboard(){
-    String s = "                             ";
+    String s = "                       ";
     jugadorPrimero.setText(s + Constantes.JUGADOR_PRIMERO);
     jugadorSegundo.setText(s + Constantes.JUGADOR_SEGUNDO);
     jugadorTercero.setText(s + Constantes.JUGADOR_TERCERO);
