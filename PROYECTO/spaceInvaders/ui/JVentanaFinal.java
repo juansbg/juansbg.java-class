@@ -55,7 +55,7 @@ public class JVentanaFinal extends JFrame implements ActionListener {
   private void configurarJFrame(){
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setTitle("Space Invaders Leaderboard");
-    this.setSize(Constantes.X_SIZE_VENTANA_INICIO,Constantes.Y_SIZE_VENTANA_INICIO);
+    this.setSize(Constantes.X_SIZE_VENTANA_FINAL,Constantes.Y_SIZE_VENTANA_FINAL);
     this.setLocationRelativeTo(null);
     this.setResizable(false);
   }

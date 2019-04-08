@@ -58,7 +58,7 @@ public class JVentanaInicio extends JFrame implements ActionListener {
   }
 
   private void iniciarComponentes(){
-    logo = new JLabel("");
+    logo = new JLabel("",SwingConstants.CENTER);
     logoDisp = new JPanel();
     interfaz = new JPanel();
     ponerNombre = new JLabel("Nombre:   ",SwingConstants.RIGHT);
@@ -71,6 +71,7 @@ public class JVentanaInicio extends JFrame implements ActionListener {
     interfaz.setBackground(Color.black);
     logo.setIcon(icon);
     logo.setBackground(Color.black);
+    logo.setVerticalAlignment(JLabel.CENTER);
     ponerNombre.setForeground(Color.yellow);
     ponerNombre.setFont(new java.awt.Font("SANS_SERIF", java.awt.Font.BOLD, 26));
     nombre.setForeground(Color.yellow);
