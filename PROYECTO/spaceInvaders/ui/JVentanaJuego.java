@@ -42,8 +42,6 @@ public class JVentanaJuego extends JFrame implements ActionListener {
     this.add(jps,BorderLayout.NORTH);
     this.configurarJFrame();
     this.setBackground(Color.black);
-    ImageIcon iconImage = new ImageIcon("spaceInvaders/recursos/icon.png"); // ESTO NO FUNCIONA
-    this.setIconImage(iconImage.getImage());                                // ESTO NO FUNCIONA
     jpj.repaint();
     this.setVisible(false);
   }

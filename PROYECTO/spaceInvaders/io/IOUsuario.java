@@ -24,24 +24,18 @@ public class IOUsuario {
 
   public static Collection leerUsuarios(){
     Collection usuarios = new ArrayList();
-    boolean cont = true;
+    ObjectInputStream ois = null;
     try {
-        ObjectInputStream ois = new ObjectInputStream(new FileInputStream("spaceInvaders/datos/usuarios.spa"));
-        while(cont){
-              Usuario user=null;
-            try {
-                user =(Usuario) ois.readObject();
-            } catch (EOFException eof){
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-              if(user != null)
-                 usuarios.add(user);
-              else
-                 cont = false;
-           }
-    } catch (FileNotFoundException e) {
-        e.printStackTrace();
+      ois = new ObjectInputStream(new FileInputStream("spaceInvaders/datos/usuarios.spa"));
+        try {
+          while(true)
+            usuarios.add((Usuario) ois.readObject());
+        } catch (EOFException eof){
+        } catch (ClassNotFoundException e) {
+          e.printStackTrace();
+        }
+        ois.close();
+    } catch (FileNotFoundException e) {  
     } catch (IOException e) {
         e.printStackTrace();
     }

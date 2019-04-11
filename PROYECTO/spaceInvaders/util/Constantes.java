@@ -53,4 +53,6 @@ public class Constantes {
   public static String        JUGADOR_TERCERO             = null;
   public static String        JUGADOR_CUARTO              = null;
   public static String        JUGADOR_QUINTO              = null;
+
+  public static final boolean RETRO                       = false;
 }
