@@ -28,19 +28,24 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class JVentanaFinal extends JFrame implements ActionListener {
-  JLabel gameOver;
-  JPanel leaderboard;
-  JPanel panelInferior;
-  JPanel panelSuperior;
-  JLabel jugadorPrimero;
-  JLabel jugadorSegundo;
-  JLabel jugadorTercero;
-  JLabel jugadorCuarto;
-  JLabel jugadorQuinto;
-  ImageIcon iconButtonRestart = new ImageIcon("spaceInvaders/recursos/elementos/botonRestart.png");
-  ImageIcon iconButtonExit = new ImageIcon("spaceInvaders/recursos/elementos/botonExit.png");
-  JButton restart;
-  JButton exit;
+  JLabel      gameOver;
+  JPanel      leaderboard;
+  JPanel      panelInferior;
+  JPanel      panelSuperior;
+  JLabel      leaderboardTitle;
+  JLabel      tuPuntuacionTitle;
+  JLabel      resultadoJugador;
+  JLabel      jugadorPrimero;
+  JLabel      jugadorSegundo;
+  JLabel      jugadorTercero;
+  JLabel      jugadorCuarto;
+  JLabel      jugadorQuinto;
+  ImageIcon   iconButtonRestart = new ImageIcon("spaceInvaders/recursos/elementos/botonRestart.png");
+  ImageIcon   iconButtonExit = new ImageIcon("spaceInvaders/recursos/elementos/botonExit.png");
+  JButton     restart;
+  JButton     exit;
+  String st = "         ";
+  String s  = "              ";
 
   public JVentanaFinal(){
     this.configurarJFrame();
@@ -78,8 +83,17 @@ public class JVentanaFinal extends JFrame implements ActionListener {
     panelSuperior.setLayout(new FlowLayout());
     panelSuperior.setBackground(Color.black);
     leaderboard = new JPanel();
-    leaderboard.setLayout(new GridLayout(5,1));
+    leaderboard.setLayout(new GridLayout(8,1));
     leaderboard.setBackground(Color.black);
+    leaderboardTitle = new JLabel(st + "Leaderboard:");
+    leaderboardTitle.setForeground(Color.white);
+    leaderboardTitle.setFont(new java.awt.Font("SANS_SERIF", java.awt.Font.BOLD, 28));
+    tuPuntuacionTitle = new JLabel(st + "Tu resultado:");
+    tuPuntuacionTitle.setForeground(Color.white);
+    tuPuntuacionTitle.setFont(new java.awt.Font("SANS_SERIF", java.awt.Font.BOLD, 28));
+    resultadoJugador = new JLabel("");
+    resultadoJugador.setForeground(Color.green);
+    resultadoJugador.setFont(new java.awt.Font("SANS_SERIF", java.awt.Font.BOLD, 25));
     jugadorPrimero = new JLabel("");
     jugadorPrimero.setForeground(Color.green);
     jugadorPrimero.setFont(new java.awt.Font("SANS_SERIF", java.awt.Font.BOLD, 25));
@@ -101,21 +115,41 @@ public class JVentanaFinal extends JFrame implements ActionListener {
     this.add(panelSuperior,BorderLayout.NORTH);
     panelInferior.add(restart);
     panelInferior.add(exit);
+    leaderboard.add(leaderboardTitle);
     leaderboard.add(jugadorPrimero);
     leaderboard.add(jugadorSegundo);
     leaderboard.add(jugadorTercero);
     leaderboard.add(jugadorCuarto);
     leaderboard.add(jugadorQuinto);
+    leaderboard.add(tuPuntuacionTitle);
+    leaderboard.add(resultadoJugador);
     this.add(panelInferior,BorderLayout.SOUTH);
     this.add(leaderboard,BorderLayout.CENTER);
   }
   public void actualizarLeaderboard(){
-    String s = "                       ";
-    jugadorPrimero.setText(s + Constantes.JUGADOR_PRIMERO);
-    jugadorSegundo.setText(s + Constantes.JUGADOR_SEGUNDO);
-    jugadorTercero.setText(s + Constantes.JUGADOR_TERCERO);
-    jugadorCuarto.setText(s + Constantes.JUGADOR_CUARTO);
-    jugadorQuinto.setText(s + Constantes.JUGADOR_QUINTO);
+    jugadorPrimero.setText(s + (Constantes.JUGADOR_PRIMERO).trim());
+    jugadorSegundo.setText(s + (Constantes.JUGADOR_SEGUNDO).trim());
+    jugadorTercero.setText(s + (Constantes.JUGADOR_TERCERO).trim());
+    jugadorCuarto.setText(s + (Constantes.JUGADOR_CUARTO).trim());
+    jugadorQuinto.setText(s + (Constantes.JUGADOR_QUINTO).trim());
+    resultadoJugador.setText(s + (this.contruirPuntos(Constantes.JUGADOR)).trim());
+    try{
+      if(Constantes.JUGADOR.getPuntos() == Constantes.PUNTUACIONES_EN_ORDEN[0])
+        resultadoJugador.setForeground(Color.green);
+      else if(Constantes.JUGADOR.getPuntos() == Constantes.PUNTUACIONES_EN_ORDEN[1])
+        resultadoJugador.setForeground(new Color(153,255,51));
+      else if(Constantes.JUGADOR.getPuntos() == Constantes.PUNTUACIONES_EN_ORDEN[2])
+        resultadoJugador.setForeground(new Color(255,255,51));
+      else if(Constantes.JUGADOR.getPuntos() == Constantes.PUNTUACIONES_EN_ORDEN[3])
+        resultadoJugador.setForeground(new Color(255,153,51));
+      else if(Constantes.JUGADOR.getPuntos() == Constantes.PUNTUACIONES_EN_ORDEN[4])
+        resultadoJugador.setForeground(new Color(255,153,51));
+      else
+        resultadoJugador.setForeground(Color.red);
+    }
+    catch(NullPointerException npe){
+        resultadoJugador.setForeground(Color.green);
+    }
     leaderboard.repaint();
     this.repaint();
   }
@@ -123,6 +157,16 @@ public class JVentanaFinal extends JFrame implements ActionListener {
   private void ponerListener(){
     restart.addActionListener(this);
     exit.addActionListener(this);
+  }
+
+  private String contruirPuntos(Usuario u){
+    StringBuilder jpri = new StringBuilder();
+    jpri.append(" ")
+        .append(u.getNick())
+        .append(": ")
+        .append(u.getPuntos());
+    s = jpri.toString();
+    return s;
   }
 
   @Override

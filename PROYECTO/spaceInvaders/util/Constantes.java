@@ -17,8 +17,8 @@ public class Constantes {
 
   public static final int     X_SIZE_VENTANA_INICIO       = 620; // Tamaño ventana de inicio
   public static final int     Y_SIZE_VENTANA_INICIO       = 350;
-  public static final int     X_SIZE_VENTANA_FINAL       = 600; // Tamaño ventana final
-  public static final int     Y_SIZE_VENTANA_FINAL       = 350;
+  public static final int     X_SIZE_VENTANA_FINAL        = 500; // Tamaño ventana final
+  public static final int     Y_SIZE_VENTANA_FINAL        = 450;
 
   public static final int     VELOC_PROYEC                = 20;   // Velocidad proyectiles
 
@@ -53,6 +53,8 @@ public class Constantes {
   public static String        JUGADOR_TERCERO             = null;
   public static String        JUGADOR_CUARTO              = null;
   public static String        JUGADOR_QUINTO              = null;
+
+  public static Integer[]     PUNTUACIONES_EN_ORDEN       = null;
 
   public static final boolean RETRO                       = false;
 }

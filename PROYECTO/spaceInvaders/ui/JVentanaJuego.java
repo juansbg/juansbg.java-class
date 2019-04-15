@@ -97,6 +97,7 @@ public class JVentanaJuego extends JFrame implements ActionListener {
     } catch(Exception e){
 
     }
+    Constantes.PUNTUACIONES_EN_ORDEN = puntosOrdenados;
     Constantes.JUGADOR_PRIMERO = construirString(0,puntosOrdenados);
     Constantes.JUGADOR_SEGUNDO = construirString(1,puntosOrdenados);
     Constantes.JUGADOR_TERCERO = construirString(2,puntosOrdenados);
