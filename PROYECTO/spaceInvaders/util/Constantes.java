@@ -3,6 +3,7 @@ package spaceInvaders.util;
 import spaceInvaders.dominio.Usuario;
 import java.util.Collection;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Constantes {
   public static final int     X_INICIAL                   = 30;   // Posición inicial del primer alien arriba a la izquierda
@@ -55,6 +56,7 @@ public class Constantes {
   public static String        JUGADOR_QUINTO              = null;
 
   public static Integer[]     PUNTUACIONES_EN_ORDEN       = null;
+  public static HashMap       USUARIOS_POR_PUNTOS         = null;
 
   public static final boolean RETRO                       = false;
 }

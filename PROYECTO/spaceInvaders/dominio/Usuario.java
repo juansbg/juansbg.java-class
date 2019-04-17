@@ -23,4 +23,20 @@ public class Usuario implements java.io.Serializable {
   public int getPuntos(){
     return puntos;
   }
+
+  public String toImprimir(){
+    String puntosTexto = Integer.toString(this.puntos);
+    String nombreTexto;
+    StringBuilder sb = new StringBuilder();
+    if(this.nick.length()>25)
+      nombreTexto = this.nick.substring(0,25);
+    else
+      nombreTexto = this.nick;
+    sb.append(nombreTexto);
+    int buclePuntos = 40 - nombreTexto.length() - puntosTexto.length();
+    for(int i = 0; i<buclePuntos;i++)
+      sb.append(".");
+    sb.append(puntosTexto);
+    return sb.toString();
+  }
 }
