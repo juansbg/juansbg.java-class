@@ -39,4 +39,22 @@ public class Usuario implements java.io.Serializable {
     sb.append(puntosTexto);
     return sb.toString();
   }
+  
+  public String toImprimirHTML(){
+    String puntosTexto = Integer.toString(this.puntos);
+    String nombreTexto;
+    StringBuilder sb = new StringBuilder();
+    sb.append("<p>");
+    if(this.nick.length()>25)
+      nombreTexto = this.nick.substring(0,25);
+    else
+      nombreTexto = this.nick;
+    sb.append(nombreTexto);
+    int buclePuntos = 40 - nombreTexto.length() - puntosTexto.length();
+    for(int i = 0; i<buclePuntos;i++)
+      sb.append(".");
+    sb.append(puntosTexto);
+    sb.append("</p>");
+    return sb.toString();
+  }
 }

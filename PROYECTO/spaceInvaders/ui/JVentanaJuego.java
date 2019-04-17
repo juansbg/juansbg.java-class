@@ -100,11 +100,11 @@ public class JVentanaJuego extends JFrame implements ActionListener {
     }
     Constantes.PUNTUACIONES_EN_ORDEN = puntosOrdenados;
     Constantes.USUARIOS_POR_PUNTOS   = listaLeaderboard;
-    Constantes.JUGADOR_PRIMERO = construirString(0,puntosOrdenados);
-    Constantes.JUGADOR_SEGUNDO = construirString(1,puntosOrdenados);
-    Constantes.JUGADOR_TERCERO = construirString(2,puntosOrdenados);
-    Constantes.JUGADOR_CUARTO  = construirString(3,puntosOrdenados);
-    Constantes.JUGADOR_QUINTO  = construirString(4,puntosOrdenados);
+    Constantes.JUGADOR_PRIMERO       = construirString(0,puntosOrdenados);
+    Constantes.JUGADOR_SEGUNDO       = construirString(1,puntosOrdenados);
+    Constantes.JUGADOR_TERCERO       = construirString(2,puntosOrdenados);
+    Constantes.JUGADOR_CUARTO        = construirString(3,puntosOrdenados);
+    Constantes.JUGADOR_QUINTO        = construirString(4,puntosOrdenados);
   }
 
   private String construirString(int i,Integer[] puntosOrdenados){

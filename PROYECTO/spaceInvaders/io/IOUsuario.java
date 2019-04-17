@@ -45,13 +45,35 @@ public class IOUsuario {
 
   public static void imprimirLeaderboard(){
     try{
+      FileWriter fw = new FileWriter("spaceInvaders/leaderboard/leaderboard.html");
+      PrintWriter pw = new PrintWriter(fw);
+      int limite;
+      if(Constantes.PUNTUACIONES_EN_ORDEN.length>=50)
+        limite = 50;
+      else
+        limite = Constantes.PUNTUACIONES_EN_ORDEN.length;
+      pw.println("<h1>Leaderboard - Space Invaders</h1>");
+      for(int i=0;i<limite;i++){
+        Usuario u = (Usuario) Constantes.USUARIOS_POR_PUNTOS.get(Constantes.PUNTUACIONES_EN_ORDEN[i]);
+        pw.println(u.toImprimirHTML());
+      }
+      pw.close();
+      fw.close();
+    }
+    catch(IOException ioe){
+      ioe.printStackTrace();
+      javax.swing.JOptionPane.showMessageDialog(null, "No se pudo escribir en el fichero", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+    }
+
+    try{
       FileWriter fw = new FileWriter("spaceInvaders/leaderboard/leaderboard.txt");
       PrintWriter pw = new PrintWriter(fw);
       int limite;
-      if(Constantes.PUNTUACIONES_EN_ORDEN.length>=100)
-        limite = 100;
+      if(Constantes.PUNTUACIONES_EN_ORDEN.length>=50)
+        limite = 50;
       else
         limite = Constantes.PUNTUACIONES_EN_ORDEN.length;
+      pw.println("Leaderboard - Space Invaders");
       for(int i=0;i<limite;i++){
         Usuario u = (Usuario) Constantes.USUARIOS_POR_PUNTOS.get(Constantes.PUNTUACIONES_EN_ORDEN[i]);
         pw.println(u.toImprimir());
