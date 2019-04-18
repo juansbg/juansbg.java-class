@@ -44,6 +44,7 @@ public class IOUsuario {
   }
 
   public static void imprimirLeaderboard(){
+    // HTML File
     try{
       FileWriter fw = new FileWriter("spaceInvaders/leaderboard/leaderboard.html");
       PrintWriter pw = new PrintWriter(fw);
@@ -72,7 +73,7 @@ public class IOUsuario {
       ioe.printStackTrace();
       javax.swing.JOptionPane.showMessageDialog(null, "No se pudo escribir en el fichero", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
     }
-
+    // TXT File
     try{
       FileWriter fw = new FileWriter("spaceInvaders/leaderboard/leaderboard.txt");
       PrintWriter pw = new PrintWriter(fw);
