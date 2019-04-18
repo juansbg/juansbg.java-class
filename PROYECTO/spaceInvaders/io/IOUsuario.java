@@ -52,11 +52,19 @@ public class IOUsuario {
         limite = 50;
       else
         limite = Constantes.PUNTUACIONES_EN_ORDEN.length;
+      pw.println("<!DOCTYPE html>");
+      pw.println("<html>");
+        pw.println("<head>");
+          pw.println("<style>");
+            pw.println("p {font-family: monaco;}");
+          pw.println("</style>");
+        pw.println("</head>");
       pw.println("<h1>Leaderboard - Space Invaders</h1>");
       for(int i=0;i<limite;i++){
         Usuario u = (Usuario) Constantes.USUARIOS_POR_PUNTOS.get(Constantes.PUNTUACIONES_EN_ORDEN[i]);
         pw.println(u.toImprimirHTML());
       }
+      pw.println("</html>");
       pw.close();
       fw.close();
     }
