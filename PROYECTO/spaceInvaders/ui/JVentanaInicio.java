@@ -55,7 +55,15 @@ public class JVentanaInicio extends JFrame implements ActionListener {
     this.setSize(Constantes.X_SIZE_VENTANA_INICIO,Constantes.Y_SIZE_VENTANA_INICIO);
     this.setLocationRelativeTo(null);
     this.setBackground(Color.black);
+    this.setPropioCursor();
     this.setResizable(false);
+  }
+
+  private void setPropioCursor(){
+    Toolkit toolkit = Toolkit.getDefaultToolkit();
+    Image image = toolkit.getImage("spaceInvaders/recursos/elementos/raton.png");
+    Cursor c = toolkit.createCustomCursor(image , new Point(0, 0), "img");
+    this.setCursor (c);
   }
 
   private void iniciarComponentes(){

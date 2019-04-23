@@ -107,6 +107,13 @@ public class JVentanaJuego extends JFrame implements ActionListener {
     Constantes.JUGADOR_QUINTO        = construirString(4,puntosOrdenados);
   }
 
+  private void setPropioCursor(){
+    Toolkit toolkit = Toolkit.getDefaultToolkit();
+    Image image = toolkit.getImage("spaceInvaders/recursos/elementos/raton.png");
+    Cursor c = toolkit.createCustomCursor(image , new Point(0, 0), "img");
+    this.setCursor (c);
+  }
+
   private String construirString(int i,Integer[] puntosOrdenados){
     StringBuilder jpri = new StringBuilder();
     String s;
@@ -139,6 +146,7 @@ public class JVentanaJuego extends JFrame implements ActionListener {
     this.setSize(Constantes.X_SIZE_VENTANA,Constantes.Y_SIZE_VENTANA);
     //this.setMinimumSize(new Dimension(800,550));
     this.setLocationRelativeTo(null);
+    this.setPropioCursor();
     this.setResizable(false);
   }
   @Override

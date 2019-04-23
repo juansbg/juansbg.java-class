@@ -62,7 +62,14 @@ public class JVentanaFinal extends JFrame implements ActionListener {
     this.setTitle("Space Invaders Leaderboard");
     this.setSize(Constantes.X_SIZE_VENTANA_FINAL,Constantes.Y_SIZE_VENTANA_FINAL);
     this.setLocationRelativeTo(null);
+    this.setPropioCursor();
     this.setResizable(false);
+  }
+  private void setPropioCursor(){
+    Toolkit toolkit = Toolkit.getDefaultToolkit();
+    Image image = toolkit.getImage("spaceInvaders/recursos/elementos/raton.png");
+    Cursor c = toolkit.createCustomCursor(image , new Point(0, 0), "img");
+    this.setCursor (c);
   }
   private void iniciarComponentes(){
     gameOver = new JLabel("GAME OVER",SwingConstants.CENTER);

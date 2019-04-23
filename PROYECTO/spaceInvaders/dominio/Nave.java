@@ -12,9 +12,9 @@ public class Nave extends Volador {
   private Proyectil proyectil = new PNave();
 
   public Nave(){
-    super("/Users/juansb/Documents/GitHub/juansbg.github.io/PROYECTO/SpaceInvaders/Recursos/NaveP1.png","/Users/juansb/Documents/GitHub/juansbg.github.io/PROYECTO/SpaceInvaders/Recursos/NavePM1.png","/Users/juansb/Documents/GitHub/juansbg.github.io/PROYECTO/SpaceInvaders/Recursos/NavePM2.png");
-    this.setX((Integer) Constantes.X_SIZE_VENTANA/2 -26);
-    this.setY(Constantes.Y_SIZE_VENTANA - 110);
+    super("spaceInvaders/Recursos/NaveP1.png","spaceInvaders/Recursos/NavePM1.png","spaceInvaders/Recursos/NavePM2.png");
+    this.setX(Constantes.X_INICIAL_NAVE);
+    this.setY(Constantes.Y_INICIAL_NAVE);
   }
 
   public void comprobarColision(PAlien proyectil, JPanelJuego jpj){
