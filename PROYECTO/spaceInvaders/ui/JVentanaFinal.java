@@ -186,7 +186,7 @@ public class JVentanaFinal extends JFrame implements ActionListener {
       System.exit(0);
     else if(target == restart)
       try{
-          Runtime.getRuntime().exec("java spaceInvaders.ui.AppSpaceInvaders");
+          Runtime.getRuntime().exec("java -jar SpaceInvaders.jar");
       } catch(IOException ioe) {
         ioe.printStackTrace();
       }
