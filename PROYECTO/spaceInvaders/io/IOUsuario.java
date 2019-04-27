@@ -9,7 +9,7 @@ import java.io.*;
 public class IOUsuario {
   public static void escribirUsuarios(Collection usuarios){
     try {
-      FileOutputStream fos = new FileOutputStream("spaceInvaders/datos/usuarios.spa");
+      FileOutputStream fos = new FileOutputStream("datos/usuarios.spa");
       ObjectOutputStream oos = new ObjectOutputStream(fos);
       Iterator it = usuarios.iterator();
       Usuario u;
@@ -27,7 +27,7 @@ public class IOUsuario {
     Collection usuarios = new ArrayList();
     ObjectInputStream ois = null;
     try {
-      ois = new ObjectInputStream(new FileInputStream("spaceInvaders/datos/usuarios.spa"));
+      ois = new ObjectInputStream(new FileInputStream("datos/usuarios.spa"));
         try {
           while(true)
             usuarios.add((Usuario) ois.readObject());
@@ -46,7 +46,7 @@ public class IOUsuario {
   public static void imprimirLeaderboard(){
     // HTML File
     try{
-      FileWriter fw = new FileWriter("spaceInvaders/leaderboard/leaderboard.html");
+      FileWriter fw = new FileWriter("leaderboard/leaderboard.html");
       PrintWriter pw = new PrintWriter(fw);
       int limite;
       if(Constantes.PUNTUACIONES_EN_ORDEN.length>=50)
@@ -75,7 +75,7 @@ public class IOUsuario {
     }
     // TXT File
     try{
-      FileWriter fw = new FileWriter("spaceInvaders/leaderboard/leaderboard.txt");
+      FileWriter fw = new FileWriter("leaderboard/leaderboard.txt");
       PrintWriter pw = new PrintWriter(fw);
       int limite;
       if(Constantes.PUNTUACIONES_EN_ORDEN.length>=50)

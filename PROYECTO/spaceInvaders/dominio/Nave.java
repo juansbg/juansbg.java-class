@@ -3,6 +3,7 @@ package spaceInvaders.dominio;
 import spaceInvaders.ui.JVentanaJuego;
 import spaceInvaders.ui.JPanelJuego;
 import spaceInvaders.util.Constantes;
+import spaceInvaders.util.Recursos;
 
 import java.awt.Image;
 import java.awt.event.KeyEvent;
@@ -12,7 +13,7 @@ public class Nave extends Volador {
   private Proyectil proyectil = new PNave();
 
   public Nave(){
-    super("spaceInvaders/Recursos/NaveP1.png","spaceInvaders/Recursos/NavePM1.png","spaceInvaders/Recursos/NavePM2.png");
+    super(Recursos.navePrimero,Recursos.naveMuertoUno,Recursos.naveMuertoDos);
     this.setX(Constantes.X_INICIAL_NAVE);
     this.setY(Constantes.Y_INICIAL_NAVE);
   }

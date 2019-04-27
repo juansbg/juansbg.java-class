@@ -2,6 +2,7 @@ package spaceInvaders.ui;
 
 import spaceInvaders.dominio.Usuario;
 import spaceInvaders.util.Constantes;
+import spaceInvaders.util.Recursos;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -31,8 +32,9 @@ public class JVentanaInicio extends JFrame implements ActionListener {
   JLabel logo;
   JPanel logoDisp;
   JPanel interfaz;
-  ImageIcon icon = new ImageIcon("spaceInvaders/recursos/logo/logoFinal.png");
-  ImageIcon iconButton = new ImageIcon("spaceInvaders/recursos/elementos/boton.png");
+  ImageIcon logog = new ImageIcon(Recursos.logo);
+  ImageIcon icono = new ImageIcon(Recursos.icono);
+  ImageIcon iconButton = new ImageIcon(Recursos.botonStart);
   JLabel ponerNombre;
   JButton start;
   JTextField nombre;
@@ -45,6 +47,7 @@ public class JVentanaInicio extends JFrame implements ActionListener {
     this.iniciarComponentes();
     this.colocarComponentes();
     this.ponerListener();
+    this.setIconImage(icono.getImage());
     this.repaint();
     this.setVisible(true);
   }
@@ -61,7 +64,7 @@ public class JVentanaInicio extends JFrame implements ActionListener {
 
   private void setPropioCursor(){
     Toolkit toolkit = Toolkit.getDefaultToolkit();
-    Image image = toolkit.getImage("spaceInvaders/recursos/elementos/raton.png");
+    Image image = toolkit.getImage(Recursos.raton);
     Cursor c = toolkit.createCustomCursor(image , new Point(0, 0), "img");
     this.setCursor (c);
   }
@@ -78,7 +81,7 @@ public class JVentanaInicio extends JFrame implements ActionListener {
     logoDisp.setBackground(Color.black);
     interfaz.setLayout(new GridLayout(1,3));
     interfaz.setBackground(Color.black);
-    logo.setIcon(icon);
+    logo.setIcon(logog);
     logo.setBackground(Color.black);
     logo.setVerticalAlignment(JLabel.CENTER);
     ponerNombre.setForeground(Color.yellow);

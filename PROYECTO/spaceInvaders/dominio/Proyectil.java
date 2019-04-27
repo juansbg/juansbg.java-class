@@ -1,9 +1,10 @@
 package spaceInvaders.dominio;
 import spaceInvaders.util.Constantes;
+import java.net.URL;
 
 public abstract class Proyectil extends Volador {
 
-  public Proyectil(String dirImagen1, String dirImagen2) {
+  public Proyectil(URL dirImagen1, URL dirImagen2) {
     super(dirImagen1,dirImagen2,dirImagen2);
     this.setX(0);
     this.setY(0);

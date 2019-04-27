@@ -2,6 +2,7 @@ package spaceInvaders.dominio;
 
 import spaceInvaders.ui.JPanelJuego;
 import spaceInvaders.util.Constantes;
+import spaceInvaders.util.Recursos;
 
 import java.awt.Image;
 import java.awt.event.KeyEvent;
@@ -9,7 +10,7 @@ import javax.swing.ImageIcon;
 
 public class PAlien extends Proyectil {
   public PAlien() {
-    super("spaceInvaders/recursos/PAlien.png","spaceInvaders/recursos/PAlien.png");
+    super(Recursos.proyectilAlien,Recursos.proyectilAlien);
   }
 
   public void disparo(Volador v){

@@ -8,6 +8,7 @@ import spaceInvaders.dominio.Proyectil;
 import spaceInvaders.dominio.PNave;
 import spaceInvaders.dominio.ObjetoJuego;
 import spaceInvaders.util.Constantes;
+import spaceInvaders.util.Recursos;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -38,7 +39,7 @@ public class JPanelSuperior extends JPanel {
   JPanel panelEast;
   JPanel panelVidas;
   JPanel panelIzquierdo;
-  ImageIcon icon = new ImageIcon("spaceInvaders/recursos/vida.png");
+  ImageIcon icon = new ImageIcon(Recursos.corazonVida);
   JLabel vida1;
   JLabel vida2;
   JLabel vida3;

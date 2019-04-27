@@ -2,6 +2,7 @@ package spaceInvaders.ui;
 
 import spaceInvaders.dominio.Usuario;
 import spaceInvaders.util.Constantes;
+import spaceInvaders.util.Recursos;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -40,12 +41,13 @@ public class JVentanaFinal extends JFrame implements ActionListener {
   JLabel      jugadorTercero;
   JLabel      jugadorCuarto;
   JLabel      jugadorQuinto;
-  ImageIcon   iconButtonRestart = new ImageIcon("spaceInvaders/recursos/elementos/botonRestart.png");
-  ImageIcon   iconButtonExit = new ImageIcon("spaceInvaders/recursos/elementos/botonExit.png");
+  ImageIcon   iconButtonRestart = new ImageIcon(Recursos.botonRestart);
+  ImageIcon   iconButtonExit = new ImageIcon(Recursos.botonExit);
   JButton     restart;
   JButton     exit;
   String st = "         ";
   String s  = "              ";
+  ImageIcon icono = new ImageIcon(Recursos.icono);
 
   public JVentanaFinal(){
     this.configurarJFrame();
@@ -54,6 +56,7 @@ public class JVentanaFinal extends JFrame implements ActionListener {
     this.colocarComponentes();
     this.ponerListener();
     this.setBackground(Color.black);
+    this.setIconImage(icono.getImage());
     this.repaint();
     this.setVisible(false);
   }
@@ -67,7 +70,7 @@ public class JVentanaFinal extends JFrame implements ActionListener {
   }
   private void setPropioCursor(){
     Toolkit toolkit = Toolkit.getDefaultToolkit();
-    Image image = toolkit.getImage("spaceInvaders/recursos/elementos/raton.png");
+    Image image = toolkit.getImage(Recursos.raton);
     Cursor c = toolkit.createCustomCursor(image , new Point(0, 0), "img");
     this.setCursor (c);
   }

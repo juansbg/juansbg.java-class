@@ -9,7 +9,7 @@ public class Constantes {
   public static final int     X_INICIAL                   = 30;   // Posición inicial del primer alien arriba a la izquierda
   public static final int     Y_INICIAL                   = 10;
   public static final int     X_INICIAL_NAVE              = (int) Constantes.X_SIZE_VENTANA/2 -26;
-  public static final int     Y_INICIAL_NAVE              = Constantes.Y_SIZE_VENTANA - 140;
+  public static final int     Y_INICIAL_NAVE              = Constantes.Y_SIZE_VENTANA - 120;
 
   public static final int     SEPARACION_LATERAL          = 70;   // Separación entre los aliens
   public static final int     SEPARACION_VERTICAL         = 60;

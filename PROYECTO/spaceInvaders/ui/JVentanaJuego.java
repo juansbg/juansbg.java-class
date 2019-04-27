@@ -6,6 +6,7 @@ import spaceInvaders.dominio.ObjetoJuego;
 import spaceInvaders.util.Constantes;
 import spaceInvaders.dominio.Usuario;
 import spaceInvaders.io.IOUsuario;
+import spaceInvaders.util.Recursos;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -31,7 +32,7 @@ public class JVentanaJuego extends JFrame implements ActionListener {
   public static int cnt = 1; // Contador para actualizar imagen aliens
   IOUsuario iou = new IOUsuario();
   JVentanaFinal jvf;
-
+  ImageIcon icono = new ImageIcon(Recursos.icono);
   HashMap listaLeaderboard = new HashMap();
 
   public JVentanaJuego(JPanelJuego jpj,JPanelSuperior jps,JVentanaFinal jvf) {
@@ -42,6 +43,7 @@ public class JVentanaJuego extends JFrame implements ActionListener {
     this.add(jps,BorderLayout.NORTH);
     this.configurarJFrame();
     this.setBackground(Color.black);
+    this.setIconImage(icono.getImage());
     jpj.repaint();
     this.setVisible(false);
   }
@@ -109,7 +111,7 @@ public class JVentanaJuego extends JFrame implements ActionListener {
 
   private void setPropioCursor(){
     Toolkit toolkit = Toolkit.getDefaultToolkit();
-    Image image = toolkit.getImage("spaceInvaders/recursos/elementos/raton.png");
+    Image image = toolkit.getImage(Recursos.raton);
     Cursor c = toolkit.createCustomCursor(image , new Point(0, 0), "img");
     this.setCursor (c);
   }
