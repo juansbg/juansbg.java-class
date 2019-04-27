@@ -8,7 +8,7 @@ public abstract class Volador extends ObjetoJuego {
   private int movX;
   private int movY;
 
-  public Volador(String dirImagen1, String dirImagen2, String dirImagen3){
+  public Volador(URL dirImagen1, URL dirImagen2, URL dirImagen3){
     super(dirImagen1,dirImagen2, dirImagen3);
   }
 

@@ -3,6 +3,7 @@ package spaceInvaders.dominio;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
+import java.net.URL;
 
 public abstract class ObjetoJuego {
   public static int IM1 = 0;
@@ -18,7 +19,7 @@ public abstract class ObjetoJuego {
   private Image imagen3;
   private boolean visible;
 
-  public ObjetoJuego(String dirImagen1, String dirImagen2, String dirImagen3){
+  public ObjetoJuego(URL dirImagen1, URL dirImagen2, URL dirImagen3){
     this.importarImagenes(dirImagen1,dirImagen2,dirImagen3);
     this.setVisible(true);
     // Color HEX Recursos: 3ffc4a
@@ -56,7 +57,7 @@ public abstract class ObjetoJuego {
     this.visible = v;
   }
 
-  public void importarImagenes(String dirImagen1, String dirImagen2, String dirImagen3){
+  public void importarImagenes(URL dirImagen1, URL dirImagen2, URL dirImagen3){
     ImageIcon ic1 = new ImageIcon(dirImagen1);
     ImageIcon ic2 = new ImageIcon(dirImagen2);
     ImageIcon ic3 = new ImageIcon(dirImagen3);

@@ -2,6 +2,7 @@ package spaceInvaders.dominio;
 
 import spaceInvaders.ui.JPanelJuego;
 import spaceInvaders.util.Constantes;
+import spaceInvaders.util.Recursos;
 
 import java.awt.Image;
 import java.awt.event.KeyEvent;
@@ -18,7 +19,7 @@ public class Alien extends Volador {
   }
 
   public Alien(int x, int y){
-    super("spaceInvaders/recursos/Alien1P1_BLANCO.png","spaceInvaders/recursos/Alien1P2_BLANCO.png","spaceInvaders/recursos/AlienPM_BLANCO.png");
+    super(Recursos.alienUnoBlancoPrimero,Recursos.alienUnoBlancoSegundo,Recursos.alienUnoBlancoSegundo);
     this.setX(x);
     this.setY(y);
     this.setVisible(true);
