@@ -2,6 +2,9 @@ README Space Invaders 2019 v1.0
 
 ARCHIVOS DE LA PRÁCTICA
 -------------------------------------------------------------------------------
+Todo el contenido a entregar se encuentra en los archivos ZIP con los nombres
+correspondientes a los necesarios para la entrega. Las demás carpetas del github
+tienen el siguiente contenido:
   - DISTRIBUCIÓN:   Ésta carpeta contiene el producto final, el jar y los
                     archivos de guardado, así como el leaderboard en HTML.
   - DOCUMENTACIÓN:  Ésta carpeta contiene el javadoc generado de todos los
