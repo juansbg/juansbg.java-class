@@ -1,6 +1,4 @@
-# Space Invaders 2019 v1.0
-## por Juan Sánchez-Blanco, alumno de 2ºGITT de la U.P. de Comillas
-### Repositorio del proyecto para el trabajo de fin de curso de la asignatura de Programación Orientada a Objetos
+README Space Invaders 2019 v1.0
 
 ARCHIVOS DE LA PRÁCTICA
 -------------------------------------------------------------------------------
