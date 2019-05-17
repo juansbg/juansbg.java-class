@@ -30,9 +30,9 @@ guardarlas.
 
 CONTROLES
 -------------------------------------------------------------------------------
-Flecha derecha    --> Movimiento a derecha
-Flecha izquierda  --> Movimiento a izquierda
-Espacio           --> Disparar
+- Flecha derecha    --> Movimiento a derecha
+- Flecha izquierda  --> Movimiento a izquierda
+- Espacio           --> Disparar
 
 LEADERBOARD
 -------------------------------------------------------------------------------
